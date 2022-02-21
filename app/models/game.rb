@@ -3,5 +3,5 @@ class Game < ApplicationRecord
   has_many :bookings
   has_many :users, through: :bookings
 
-  validates :description, :name, :price, :address, :min_player, :max_player, presence: true
+  validates :description, :name, :price, :address, :min_player, :max_player, :playtime, presence: true
 end

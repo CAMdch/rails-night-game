@@ -1,0 +1,17 @@
+.btn-nav-bar {
+  color: $pink;
+  font-family: $body-font;
+  text-decoration: none;
+  border: 1px solid $pink;
+  padding: 3px 15px;
+  border-radius: 4px;
+  transition: 1s;
+  margin-right: 15px;
+  &:hover {
+    text-decoration: none;
+    transition: 1s;
+    background-color: $pink;
+    color: white;
+    transition: 1s;
+  }
+}

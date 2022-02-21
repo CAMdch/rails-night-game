@@ -1,0 +1,97 @@
+// card stylesheet.
+.card-trip {
+  overflow: hidden;
+  background: $dark-purple;
+  border: 3px solid $purple;
+  border-radius: 10px;
+  width: 300px;
+}
+
+.card-trip > img {
+  height: 300px;
+  width: 300px;
+  object-fit: cover;
+}
+
+.card-trip h2 {
+  color: $light-gray;
+  font-family: $headers-font;
+  font-size: 20px;
+  font-weight: 400;
+  margin: 10px;
+}
+
+.card-trip p {
+  font-size: 12px;
+  opacity: 1;
+  margin: 0;
+}
+
+.card-trip-infos .symbol i {
+  color: #F4F4F4;
+}
+
+.card-trip-infos .symbol p {
+  color: #F4F4F4;
+  font-family: $body-font;
+}
+
+.symbol {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.filters{
+  background-color: rgba($color: #670099, $alpha: 0.2);
+  padding: 4px;
+  border-radius: 4px;
+  margin-top: 2px;
+  display: flex;
+  align-items: row;
+  justify-content: space-around;
+}
+.card-trip .card-trip-infos {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
+
+.card-trip-pricing {
+  color:aliceblue;
+  position: absolute;
+  right: 16px;
+  top: -20px;
+  width: 40px;
+}
+
+
+
+// this is the html format you should use:
+
+// <div class="container">
+//   <div class="card-trip">
+//     <img src="https://tse2.mm.bing.net/th?id=OIP.NWxz-CpsiOKJgAscXep7QgHaE8&pid=Api&P=0&w=260&h=173" />
+//     <div class="card-trip-infos">
+//       <div>
+//         <h2>The best escape game you will ever play.</h2>
+//         <div class="filters">
+//           <div class="symbol">
+//             <i class="fas fa-coins"></i>
+//             <p> 9.00$ </p>
+//           </div>
+//           <div class="symbol">
+//             <i class="fas fa-user-friends"></i>
+//             <p>10-11 players</p>
+//           </div>
+//           <div class="symbol">
+//             <i class="fas fa-clock"></i>
+//             <p>200 mins</p>
+//           </div>
+//         </div>
+//       </div>
+//     </div>
+//   </div>
+// </div>

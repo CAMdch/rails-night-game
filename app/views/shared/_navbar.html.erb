@@ -12,10 +12,10 @@
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item active">
-            <%= link_to "Home", "#", class: "btn-nav-bar" %>
+            <%= link_to "Home", '/', class: "btn-nav-bar" %>
           </li>
           <li class="nav-item">
-            <%= link_to "Add a game", "#", class: "btn-nav-bar" %>
+            <%= link_to "Add a game", new_game_path , class: "btn-nav-bar" %>
           </li>
           <li class="nav-item dropdown">
             <%= image_tag "https://images.unsplash.com/photo-1588422333078-44ad73367bcb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>

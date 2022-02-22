@@ -1,0 +1,20 @@
+
+label {
+  color: white;
+  font-family: $body-font;
+  text-align: center;
+  border: 1px solid white;
+  border-radius: 4px;
+  width: 100%;
+  margin-top: 15px;
+}
+
+.nb-player {
+  display: flex;
+  justify-content: space-between;
+}
+
+.player {
+  margin: 0 7px;
+  width: 100%;
+}

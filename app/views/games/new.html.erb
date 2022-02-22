@@ -1,0 +1,19 @@
+<div class="container">
+  <h1>Add a game</h1>
+  <%=simple_form_for(@game) do |f|%>
+    <%= f.input :name%>
+    <%= f.input :description%>
+    <%= f.input :price%>
+    <div class="nb-player">
+      <div class="player">
+        <%= f.input :min_player%>
+      </div>
+      <div class="player">
+        <%= f.input :max_player%>
+      </div>
+    </div>
+    <%= f.input :playtime%>
+    <%= f.input :address%>
+    <%= f.submit class:"btn-submit"%>
+  <%end%>
+</div>

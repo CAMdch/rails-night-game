@@ -31,11 +31,19 @@
   width: 100%
 }
 
+.game-image{
+  display: flex;
+  justify-content: center;
+  border: 1px solid $pink;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
 .form-date {
   border: 1px solid $pink;
   border-radius: 15px;
   padding: 15px;
-  margin-top: 10px;
+  margin-top: 65px;
 }
 
 .input-date {

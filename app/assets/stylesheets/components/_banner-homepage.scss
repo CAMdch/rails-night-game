@@ -1,5 +1,4 @@
 
-
 .banner{
   padding-top:20vh;
   padding-bottom:20vh;
@@ -10,6 +9,7 @@
   font-weight:100;
   overflow:hidden;
   animation:bg 8s linear infinite;
+  position: relative;
 }
 
 
@@ -87,7 +87,7 @@
   0% {
     font-size:0px;
     opacity:0;
-    margin-left:-30px;
+    margin-left:0px;
     margin-top:0px;
     transform: rotate(-25deg);
   }
@@ -111,13 +111,13 @@
   37% {
     font-size:1500px;
     opacity:0;
-    margin-left:-1000px;
-    margin-top:-800px;
+    margin-left:0px;
+    margin-top:0px;
   }
   100% {
     font-size:0px;
     opacity:0;
-    margin-left:-30px;
+    margin-left:0px;
     margin-top:0px;
     transform: rotate(15deg);
   }

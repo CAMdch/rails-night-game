@@ -1,3 +1,25 @@
+.title-review {
+  display: flex;
+  align-items: center;
+  h3 {
+    margin: 0;
+  }
+}
+
+.stars-rating-review {
+  display: flex;
+  margin-left: 15px;
+  p {
+    margin: 0;
+  }
+
+  i {
+    display: flex;
+    align-items: center;
+    margin-right: 5px;
+  }
+}
+
 .review{
   margin: 15px 0;
 

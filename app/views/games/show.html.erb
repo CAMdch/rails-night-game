@@ -1,21 +1,26 @@
 <div class="container">
-
   <div class="row">
     <div class="col-lg-8 col-sm-12">
       <div class="information">
         <h1><%=@game.name%></h1>
-        <div class="details">
-          <div class="detail">
-            <i class="fas fa-coins"></i>
-            <p><%=@game.price%>$</p>
-          </div>
-          <div class="detail">
-            <i class="fas fa-user-friends"></i>
-            <p><%=@game.min_player%>-<%=@game.max_player%> players</p>
-          </div>
-          <div class="detail">
-            <i class="fas fa-clock"></i>
-            <p><%=@game.playtime%> mins</p>
+        <div class="d-flex justify-content-center">
+          <%= cl_image_tag(@game.photo.key ,
+          height: 300, width: 414, crop: :fill) %>
+        </div>
+        <div class="d-flex justify-content-center">
+          <div class="details">
+            <div class="detail">
+              <i class="fas fa-coins"></i>
+              <p><%=@game.price%>$</p>
+            </div>
+            <div class="detail">
+              <i class="fas fa-user-friends"></i>
+              <p><%=@game.min_player%>-<%=@game.max_player%> players</p>
+            </div>
+            <div class="detail">
+              <i class="fas fa-clock"></i>
+              <p><%=@game.playtime%> mins</p>
+            </div>
           </div>
         </div>
         <div class="description">
@@ -44,3 +49,5 @@
     </div>
   </div>
 </div>
+<%# <%= cl_image_tag("ydqbpxoslrtixlkkyair",
+       width: 400, height: 300, crop: :fill) %>

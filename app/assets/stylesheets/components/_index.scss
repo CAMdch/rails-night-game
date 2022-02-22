@@ -8,3 +8,8 @@
 @import "banner-homepage";
 @import "form";
 @import "detailsShowGame";
+
+html, body {
+  height: 100%;
+  margin: 0;
+}

@@ -145,3 +145,44 @@
     opacity: 1;
   }
 }
+
+
+.booking-card {
+  display: flex;
+  align-items: center;
+  border: 1px solid white;
+  border-radius: 15px;
+  padding: 15px 30px;
+  justify-content: space-between;
+  .update-status {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.update-status i {
+  font-size: 40px;
+  margin: 15px 0;
+  text-decoration: none;
+}
+
+.fa-check-circle {
+  color: green;
+  opacity: 0.5;
+  transition: 1s;
+  &:hover {
+    transition: 1s;
+    opacity: 1;
+  }
+}
+
+
+.fa-times-circle {
+  color: red;
+  opacity: 0.5;
+  transition: 1s;
+  &:hover {
+    transition: 1s;
+    opacity: 1;
+  }
+}

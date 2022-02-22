@@ -12,7 +12,25 @@ class BookingsController < ApplicationController
   end
 
   def index
-    raise
+    @user = current_user.id
+    @game = Game.find(params[:game_id])
+    @bookings = Booking.where('game_id = ?', params[:game_id])
+  end
+
+  def decline
+    @booking = Booking.find(params[:id])
+    @booking.status = "Decline"
+    @booking.save
+    @game = @booking.game
+    redirect_to game_bookings_path(@game)
+  end
+
+  def accept
+    @booking = Booking.find(params[:id])
+    @booking.status = "Accept"
+    @booking.save
+    @game = @booking.game
+    redirect_to game_bookings_path(@game)
   end
 
   private

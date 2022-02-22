@@ -1,6 +1,7 @@
 <%=simple_form_for(game) do |f|%>
     <%= f.input :name%>
     <%= f.input :description%>
+    <%= f.input :photo, as: :file %>
     <%= f.input :price%>
     <div class="nb-player">
       <div class="player">

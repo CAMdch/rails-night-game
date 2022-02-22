@@ -146,6 +146,7 @@
   }
 }
 
+//booking card
 
 .booking-card {
   display: flex;
@@ -154,6 +155,8 @@
   border-radius: 15px;
   padding: 15px 30px;
   justify-content: space-between;
+  margin-top: 15px;
+  margin-bottom: 25px;
   .update-status {
     display: flex;
     flex-direction: column;

@@ -5,7 +5,8 @@
       <div class="col-lg-4 col-sm-12">
         <%= link_to game_path(game), class:"btn-card" do%>
           <div class="card-trip">
-            <img src="https://tse2.mm.bing.net/th?id=OIP.NWxz-CpsiOKJgAscXep7QgHaE8&pid=Api&P=0&w=260&h=173" />
+            <%= cl_image_tag(game.photo.key, crop: :fill) %>
+            <%# <img src="https://tse2.mm.bing.net/th?id=OIP.NWxz-CpsiOKJgAscXep7QgHaE8&pid=Api&P=0&w=260&h=173" /> %>
             <div class="card-trip-infos">
               <div>
                 <h2><%= game.name%></h2>

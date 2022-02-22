@@ -28,17 +28,15 @@
     <div class="col-lg-4 col-sm-12">
       <div class="form-date">
         <p><strong><%= @game.price%></strong> / nigth</p>
-        <form>
-          <div class="input-group">
-            <span class="input-date" id="basic-addon1">From:</span>
-            <input type="text" class="form-control" placeholder="12/10/2022" aria-label="Username" aria-describedby="basic-addon1">
-          </div>
-          <div class="input-group mt-2">
-            <span class="input-date" id="basic-addon1">To:</span>
-            <input type="text" class="form-control" placeholder="18/10/2022" aria-label="Username" aria-describedby="basic-addon1">
-          </div>
-          <input type="submit" value="Book" class="btn-submit mt-2" style="width: 100%">
-        </form>
+
+
+
+        <%= simple_form_for [@game, @booking] do |f| %>
+          <%= f.input :date_begin, as: :string, required: false, input_html: {id: "range_start"} %>
+          <%= f.input :date_end, as: :string, required: false, input_html: {id: "range_end"} %>
+          <%= f.button :submit, "Book", class: "btn-submit mt-2" %>
+        <% end %>
+
       </div>
 
     </div>

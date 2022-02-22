@@ -11,6 +11,7 @@ class GamesController < ApplicationController
 
   def show
     @game = Game.find(params[:id])
+    @booking = Booking.new
   end
 
   def create

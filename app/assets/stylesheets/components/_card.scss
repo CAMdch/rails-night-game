@@ -102,9 +102,8 @@
 // </div>
 
 
-.card-product {
+.card-product, .card-product-booking {
   overflow: hidden;
-  height: 150px;
   background: none;
   display: flex;
   align-items: center;
@@ -112,22 +111,50 @@
   border-radius: 15px;
   margin: 30px auto;
   width: 100%;
+  p {
+    margin: 0;
+  }
 }
 
-.card-product img {
+.card-product-booking {
+  height: 200px;
+  position: relative;
+}
+
+.trash {
+  position: absolute;
+  top: 7px;
+  right: 14px;
+  i {
+    color: white;
+    opacity: 0.5;
+    transition: 1s;
+    font-size: 15px;
+    &:hover {
+      transition: 1s;
+      opacity: 1;
+    }
+  }
+}
+
+.card-product {
+  height: 150px;
+}
+
+.card-product img, .card-product-booking img {
   height: 100%;
   width: 120px;
   object-fit: cover;
 }
 
-.card-product h3 {
+.card-product h3, .card-product-booking h3 {
   font-size: 25px;
   font-weight: bold;
   font-family: $body-font;
   margin: 0;
 }
 
-.card-product .card-product-infos {
+.card-product .card-product-infos, .card-product-booking .card-product-infos {
   padding: 16px;
 }
 
@@ -144,6 +171,28 @@
     transition: 1s;
     opacity: 1;
   }
+}
+
+
+.status-accept {
+  border: 1px solid green;
+  border-radius: 15px;
+  padding: 7px;
+  margin-top: 7px;
+}
+
+.status-decline {
+  border: 1px solid red;
+  border-radius: 15px;
+  padding: 7px;
+  margin-top: 7px;
+}
+
+.status-waiting {
+  border: 1px solid white;
+  border-radius: 15px;
+  padding: 7px;
+  margin-top: 7px;
 }
 
 //booking card

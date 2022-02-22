@@ -1,42 +1,68 @@
-<div class="container">
+<div class="container" data-controller="viewprofil">
   <h2>Hello <%=current_user.name%></h2>
-  <h3>Your products</h3>
-  <div class="row">
-    <%@games.each do |game|%>
-      <div class="col-lg-6 col-sm-12">
-        <div class="card-product">
-            <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-          <div class="card-product-infos">
-              <h3><%= game.name%></h3>
-              <div class="icon-status">
-                <%= link_to "All bookings", game_bookings_path(game)%>
-                <%= link_to edit_game_path(game) do%>
-                  <i class="fas fa-pen"></i>
-                <%end%>
-                <%= link_to game_path(game), method: :delete do%>
-                  <i class="fas fa-trash-alt"></i>
-                <%end%>
-              </div>
-          </div>
-        </div>
-      </div>
-    <%end%>
-  </div>
-  <h3>Your bookings</h3>
+
+  <h4 class="btn btn-primary" data-action = "click->viewprofil#display" data-choice="products">Your products</h4>
+  <h4 class="btn btn-primary" data-action = "click->viewprofil#display" data-choice="bookings">Your bookings</h4>
+
+  <div class="products-view" data-viewprofil-target="products">
     <div class="row">
-    <%@bookings.each do |booking|%>
-      <div class="col-lg-6 col-sm-12">
-        <div class="card-product">
-            <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-          <div class="card-product-infos">
-              <h3><%= booking.game.name%></h3>
-              <div class="icon-status">
-
-              </div>
+      <%@games.each do |game|%>
+        <div class="col-lg-6 col-sm-12">
+          <div class="card-product">
+              <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+            <div class="card-product-infos">
+                <h3><%= game.name%></h3>
+                <div class="icon-status">
+                  <%= link_to "All bookings", game_bookings_path(game)%>
+                  <%= link_to edit_game_path(game) do%>
+                    <i class="fas fa-pen"></i>
+                  <%end%>
+                  <%= link_to game_path(game), method: :delete do%>
+                    <i class="fas fa-trash-alt"></i>
+                  <%end%>
+                </div>
+            </div>
           </div>
         </div>
-      </div>
-    <%end%>
+      <%end%>
+    </div>
   </div>
 
+  <div class="bookings-view d-none" data-viewprofil-target="bookings">
+    <div class="row">
+      <%@bookings.each do |booking|%>
+        <div class="col-lg-6 col-sm-12">
+          <div class="card-product-booking">
+            <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+            <div class="card-product-infos">
+                <h3><%= booking.game.name%></h3>
+                <p><strong>Start date :</strong> <%= booking.date_begin%></p>
+                <p><strong>End date :</strong> <%= booking.date_end%></p>
+                <div class="pending-status">
+                  <%if booking.status == "Accept"%>
+                    <div class="status-accept">
+                      <p><strong>Status :</strong> <%= booking.status%></p>
+                      <p><strong>Contact :</strong> <%= booking.game.user.email%></p>
+                    </div>
+                  <%elsif booking.status == "Decline"%>
+                    <div class="status-decline">
+                      <p><strong>Status :</strong> <%= booking.status%></p>
+                    </div>
+                  <%else%>
+                    <div class="status-waiting">
+                      <p><strong>Status :</strong> <%= booking.status%></p>
+                    </div>
+                  <%end%>
+                </div>
+            </div>
+            <div class="trash">
+              <%= link_to booking_path(booking), method: :delete do%>
+                <i class="fas fa-trash-alt"></i>
+              <%end%>
+            </div>
+          </div>
+        </div>
+      <%end%>
+    </div>
+  </div>
 </div>

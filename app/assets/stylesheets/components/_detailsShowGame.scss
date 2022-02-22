@@ -27,16 +27,12 @@
   display: flex;
 }
 
-.information {
-  width: 100%
-}
 
 .game-image{
-  display: flex;
-  justify-content: center;
   border: 1px solid $pink;
   border-radius: 15px;
-  overflow: hidden;
+  padding:16px;
+  max-width: 350px;
 }
 
 .form-date {

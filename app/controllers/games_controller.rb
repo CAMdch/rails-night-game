@@ -3,7 +3,12 @@ class GamesController < ApplicationController
   before_action :set_game, only: %i[show destroy edit update]
 
   def index
-    @games = Game.all
+    if params[:query].present?
+      @query = params[:query]
+      @games = Game.where("name ILIKE ?", @query)
+    else
+      @games = Game.all
+    end
   end
 
   def new

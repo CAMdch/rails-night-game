@@ -1,11 +1,15 @@
 <div class = "banner">
-  Play games with
+  <h1>Night-Game</h1>
+  Have a blast with
   <div class="dropping-texts">
     <div>Friends</div>
     <div>Family</div>
     <div>Colleagues</div>
     <div>EVERYONE!</div>
   </div>
-  <h1>Welcome on Night-Game</h1>
-  <p>The best board game marketplace</p>
+  <p> Rent a game</p>
+  <form class="flex my-2 my-lg-0">
+    <input class="search-bar" name="query" type="search" placeholder="Search" value="<%= params[:query] %>">
+    <button class="btn-submit-round" type="submit"><i class="fas fa-search"></i></button>
+  </form>
 </div>

@@ -4,7 +4,8 @@ class PagesController < ApplicationController
   def home
     if params[:query].present?
       @query = params[:query]
-      @games = Game.where("name ILIKE ?", @query)
+      @games = Game.where("name ILIKE ?", "%#{@query}%")
+
     else
       @games = Game.all
     end

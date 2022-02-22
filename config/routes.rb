@@ -3,7 +3,14 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   resources :games do
-    resources :bookings, only: %i[create show]
+    resources :bookings, only: %i[create index]
+  end
+
+  resources :bookings do
+    member do
+      patch 'decline'
+      patch 'accept'
+    end
   end
 
   resources :profil, only: :show

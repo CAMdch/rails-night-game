@@ -2,14 +2,15 @@
 .card-trip {
   overflow: hidden;
   background: $dark-purple;
-  border: 3px solid $purple;
+  border: 1px solid $purple;
   border-radius: 10px;
-  width: 300px;
+  width: 322px;
+  margin-top: 45px;
 }
 
 .card-trip > img {
-  height: 300px;
-  width: 300px;
+  height: 215px;
+  width: 322px;
   object-fit: cover;
 }
 
@@ -48,8 +49,9 @@
   border-radius: 4px;
   margin-top: 2px;
   display: flex;
-  align-items: row;
+  align-items: center;
   justify-content: space-around;
+  width: 287px;
 }
 .card-trip .card-trip-infos {
   padding: 16px;
@@ -67,6 +69,9 @@
   width: 40px;
 }
 
+.btn-card {
+  text-decoration: none;
+}
 
 
 // this is the html format you should use:

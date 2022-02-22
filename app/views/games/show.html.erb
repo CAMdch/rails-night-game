@@ -53,7 +53,13 @@
     <div class="row">
       <div class="col-lg-8 col-sm-12">
         <div class="all-reviews">
-          <h3>Reviews</h3>
+          <div class="title-review">
+            <h3>Reviews</h3>
+            <div class ="stars-rating-review">
+              <i class="fas fa-star"></i>
+              <p><%= @average_stars %></p>
+            </div>
+          </div>
           <%@reviews.each do |review|%>
             <div class="content-review">
               <p class="user-name"><%=review.user.name%></p>

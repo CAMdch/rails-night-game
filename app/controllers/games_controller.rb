@@ -19,6 +19,7 @@ class GamesController < ApplicationController
     @booking = Booking.new
     @review = Review.new
     @reviews = Review.all
+    @average_stars = average_stars
     # @booking_json = @game.bookings.map do |booking|
     #   start_date = booking.date_begin.strftime('%Y-%m-%d')
     #   end_date = booking.date_end.strftime('%Y-%m-%d')
@@ -50,6 +51,16 @@ class GamesController < ApplicationController
   end
 
   private
+
+  def average_stars
+    @game = Game.find(params[:id])
+    @review_all = Review.where('game_id = ?', @game.id)
+    sum_stars = @review_all.map do |review|
+      review.stars
+    end
+    average_stars = sum_stars.sum / @review_all.count
+    return average_stars
+  end
 
   def game_params
     params.require(:game).permit(:name, :description, :address, :price, :min_player, :max_player, :photo, :playtime)

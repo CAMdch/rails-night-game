@@ -34,3 +34,39 @@
     transition: 1s;
   }
 }
+
+.btn-active {
+  background-color: white;
+  color: $pink;
+  font-family: $body-font;
+  text-decoration: none;
+  border: 1px solid white;
+  padding: 3px 15px;
+  border-radius: 4px;
+  transition: 1s;
+  margin-right: 15px;
+  &:hover {
+    color: white;
+  }
+}
+
+.btn-unactive {
+  color: white;
+  font-family: $body-font;
+  text-decoration: none;
+  border: 1px solid white;
+  padding: 3px 15px;
+  border-radius: 4px;
+  transition: 1s;
+  margin-right: 15px;
+  background-color: transparent;
+  opacity: 0.5;
+  &:hover {
+    opacity: 1;
+    text-decoration: none;
+    transition: 1s;
+    background-color: white;
+    color: $pink;
+    transition: 1s;
+  }
+}

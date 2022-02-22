@@ -1,28 +1,79 @@
 <div class="container">
-  <h2>All your bookings for <%= @game.name%></h2>
+  <h2 class ="mb-3">All your bookings for <%= @game.name%></h2>
   <div class="row">
+    <h3 class="border-top pt-2">Waiting for you...</h3>
     <%@bookings.each do |booking|%>
-      <div class="col-sm-12 col-lg-6">
-        <div class="booking-card">
-          <div class="booking-information">
-            <p><strong>Customer :</strong> <%= booking.user.name%></p>
-            <p><strong>Start date :</strong> <%= booking.date_begin%></p>
-            <p><strong>Start end :</strong> <%= booking.date_end%></p>
-            <p><strong>Status :</strong> <%= booking.status%></p>
-          </div>
+      <%if booking.status == "Waiting"%>
+        <div class="col-sm-12 col-lg-6">
+          <div class="booking-card">
+            <div class="booking-information">
+              <p><strong>Customer :</strong> <%= booking.user.name%></p>
+              <p><strong>Start date :</strong> <%= booking.date_begin%></p>
+              <p><strong>Start end :</strong> <%= booking.date_end%></p>
+              <p><strong>Status :</strong> <%= booking.status%></p>
+            </div>
 
-          <div class="update-status">
-            <%= link_to accept_booking_path(booking), method: :patch do%>
-              <i class="fas fa-check-circle"></i>
-            <%end %>
-            <%= link_to decline_booking_path(booking), method: :patch do%>
-              <i class="fas fa-times-circle"></i>
-            <%end %>
+            <div class="update-status">
+              <%= link_to accept_booking_path(booking), method: :patch do%>
+                <i class="fas fa-check-circle"></i>
+              <%end %>
+              <%= link_to decline_booking_path(booking), method: :patch do%>
+                <i class="fas fa-times-circle"></i>
+              <%end %>
+            </div>
           </div>
-
         </div>
+      <%end%>
+    <%end%>
 
-      </div>
+    <h3 class="border-top pt-2">You have accepted</h3>
+    <%@bookings.each do |booking|%>
+      <%if booking.status == "Accept"%>
+        <div class="col-sm-12 col-lg-6">
+          <div class="booking-card">
+            <div class="booking-information">
+              <p><strong>Customer :</strong> <%= booking.user.name%></p>
+              <p><strong>Start date :</strong> <%= booking.date_begin%></p>
+              <p><strong>Start end :</strong> <%= booking.date_end%></p>
+              <p><strong>Status :</strong> <%= booking.status%></p>
+            </div>
+
+            <div class="update-status">
+              <%= link_to accept_booking_path(booking), method: :patch do%>
+                <i class="fas fa-check-circle"></i>
+              <%end %>
+              <%= link_to decline_booking_path(booking), method: :patch do%>
+                <i class="fas fa-times-circle"></i>
+              <%end %>
+            </div>
+          </div>
+        </div>
+      <%end%>
+    <%end%>
+
+    <h3 class="border-top pt-2">You have declined</h3>
+    <%@bookings.each do |booking|%>
+      <%if booking.status == "Decline"%>
+        <div class="col-sm-12 col-lg-6">
+          <div class="booking-card">
+            <div class="booking-information">
+              <p><strong>Customer :</strong> <%= booking.user.name%></p>
+              <p><strong>Start date :</strong> <%= booking.date_begin%></p>
+              <p><strong>Start end :</strong> <%= booking.date_end%></p>
+              <p><strong>Status :</strong> <%= booking.status%></p>
+            </div>
+
+            <div class="update-status">
+              <%= link_to accept_booking_path(booking), method: :patch do%>
+                <i class="fas fa-check-circle"></i>
+              <%end %>
+              <%= link_to decline_booking_path(booking), method: :patch do%>
+                <i class="fas fa-times-circle"></i>
+              <%end %>
+            </div>
+          </div>
+        </div>
+      <%end%>
     <%end%>
   </div>
 </div>

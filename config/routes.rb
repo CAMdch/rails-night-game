@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   resources :games do
     resources :bookings, only: %i[create index]
+    resources :reviews, only: %i[create]
   end
 
   resources :bookings do

@@ -48,6 +48,42 @@
 
     </div>
   </div>
+
+  <div class="review border-top pt-2">
+    <div class="row">
+      <div class="col-lg-8 col-sm-12">
+        <div class="all-reviews">
+          <h3>Reviews</h3>
+          <%@reviews.each do |review|%>
+            <div class="content-review">
+              <p class="user-name"><%=review.user.name%></p>
+              <p class="created-review"><%=review.created_at%></p>
+              <p class="description-review"><%= review.content%></p>
+              <div class="stars-rating">
+                <%review.stars.round.times do%>
+                  <i class="fas fa-star"></i>
+                <%end%>
+                <%(5 - review.stars.round).times do%>
+                  <i class="far fa-star"></i>
+                <%end%>
+              </div>
+            </div>
+          <%end%>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-sm-12">
+        <div class="add-review">
+          <%= simple_form_for [@game, @review] do |f|%>
+            <%= f.input :content%>
+            <%= f.input :stars%>
+            <%= f.submit class: "btn-submit mt-2" %>
+          <%end%>
+        </div>
+
+      </div>
+    </div>
+  </div>
 </div>
 <%# <%= cl_image_tag("ydqbpxoslrtixlkkyair",
        width: 400, height: 300, crop: :fill) %>

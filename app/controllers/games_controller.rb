@@ -12,6 +12,11 @@ class GamesController < ApplicationController
 
   def show
     @booking = Booking.new
+    @booking_json = @game.bookings.map do |booking|
+      start_date = booking.date_begin.strftime('%Y-%m-%d')
+      end_date = booking.date_end.strftime('%Y-%m-%d')
+      { "from" => start_date, "to" => end_date }
+    end
   end
 
   def create

@@ -3,17 +3,27 @@ import flatpickr from "flatpickr"
 import rangePlugin from "flatpickr/dist/plugins/rangePlugin"
 
 export default class extends Controller {
-  static targets = ["start", "end"]
+  static targets = ["start", "end", "bookings"]
+
 
   connect() {
-    console.log('Hello, Stimulus!')
-    console.log(this.startTarget)
-    console.log("initFlatpickr")
       flatpickr(this.startTarget, {
         altInput: true,
         plugins: [new rangePlugin({ input: this.endTarget})],
-        minDate: 'today'
+        minDate: 'today',
+        dateFormat: "Y-m-d",
+        disbale: [
+          {
+              from: "2022-04-01",
+              to: "2022-05-01"
+          },
+          {
+              from: "2022-09-01",
+              to: "2022-12-01"
+          }
+      ]
       });
+      console.log(this.bookingsTarget.dataset.bookingsValue)
     }
 
 

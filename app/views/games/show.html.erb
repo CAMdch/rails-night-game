@@ -1,12 +1,12 @@
 <div class="container">
   <div class="row">
-    <div class="col-lg-8 col-sm-12">
+    <div class="col-lg-8 col-sm-12 text-center">
       <div class="information">
         <h1><%=@game.name%></h1>
-        <div class="game-image">
-          <%= cl_image_tag(@game.photo.key ,
-          height:300, width:900 , crop: :fill) %>
-        </div>
+
+         <%=cl_image_tag @game.photo.key, class:"game-image"%>
+
+
         <div class="d-flex justify-content-center">
           <div class="details">
             <div class="detail">

@@ -33,6 +33,12 @@ class BookingsController < ApplicationController
     redirect_to game_bookings_path(@game)
   end
 
+  def destroy
+    @booking = Booking.find(params[:id])
+    @booking.destroy!
+    redirect_to profil_path(current_user.id)
+  end
+
   private
 
   def booking_params

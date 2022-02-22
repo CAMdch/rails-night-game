@@ -100,3 +100,48 @@
 //     </div>
 //   </div>
 // </div>
+
+
+.card-product {
+  overflow: hidden;
+  height: 150px;
+  background: none;
+  display: flex;
+  align-items: center;
+  border: 1px solid $pink;
+  border-radius: 15px;
+  margin: 30px auto;
+  width: 100%;
+}
+
+.card-product img {
+  height: 100%;
+  width: 120px;
+  object-fit: cover;
+}
+
+.card-product h3 {
+  font-size: 25px;
+  font-weight: bold;
+  font-family: $body-font;
+  margin: 0;
+}
+
+.card-product .card-product-infos {
+  padding: 16px;
+}
+
+
+.icon-status a {
+  text-decoration: none;
+  color: white;
+  font-family: $body-font;
+  margin-top: 7px;
+  margin-right: 5px;
+  opacity: 0.5;
+  transition: 1s;
+  &:hover {
+    transition: 1s;
+    opacity: 1;
+  }
+}

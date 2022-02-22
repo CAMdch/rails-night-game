@@ -34,13 +34,15 @@
       <div class="form-date">
         <p><strong><%= @game.price%></strong> / nigth</p>
 
+        <div data-controller="flatpicker">
+          <%= simple_form_for [@game, @booking] do |f| %>
+            <%= f.input :date_begin, as: :string, required: false, input_html: { data: { flatpicker_target: "start" } } %>
+            <%= f.input :date_end, as: :string, required: false, input_html: { data: { flatpicker_target: "end" } } %>
+            <%= f.button :submit, "Book", class: "btn-submit mt-2" %>
+          <% end %>
 
+        </div>
 
-        <%= simple_form_for [@game, @booking] do |f| %>
-          <%= f.input :date_begin, as: :string, required: false, input_html: {id: "range_start"} %>
-          <%= f.input :date_end, as: :string, required: false, input_html: {id: "range_end"} %>
-          <%= f.button :submit, "Book", class: "btn-submit mt-2" %>
-        <% end %>
 
       </div>
 

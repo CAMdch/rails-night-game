@@ -1,0 +1,42 @@
+<div class="container">
+  <h2>Hello <%=current_user.name%></h2>
+  <h3>Your products</h3>
+  <div class="row">
+    <%@games.each do |game|%>
+      <div class="col-lg-6 col-sm-12">
+        <div class="card-product">
+            <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+          <div class="card-product-infos">
+              <h3><%= game.name%></h3>
+              <div class="icon-status">
+                <%= link_to "All bookings", game_bookings_path(game)%>
+                <%= link_to edit_game_path(game) do%>
+                  <i class="fas fa-pen"></i>
+                <%end%>
+                <%= link_to game_path(game), method: :delete do%>
+                  <i class="fas fa-trash-alt"></i>
+                <%end%>
+              </div>
+          </div>
+        </div>
+      </div>
+    <%end%>
+  </div>
+  <h3>Your bookings</h3>
+    <div class="row">
+    <%@bookings.each do |booking|%>
+      <div class="col-lg-6 col-sm-12">
+        <div class="card-product">
+            <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+          <div class="card-product-infos">
+              <h3><%= booking.game.name%></h3>
+              <div class="icon-status">
+
+              </div>
+          </div>
+        </div>
+      </div>
+    <%end%>
+  </div>
+
+</div>

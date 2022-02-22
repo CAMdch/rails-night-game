@@ -4,6 +4,9 @@ class BookingsController < ApplicationController
     @booking.game = Game.find(params[:game_id])
     @booking.user = current_user
     @booking.status = "Waiting"
+    @game = Game.find(params[:game_id])
+    @reviews = Review.all
+    @review = Review.new
     if @booking.save
       redirect_to profil_path(current_user.id)
     else

@@ -1,0 +1,35 @@
+.review{
+  margin: 15px 0;
+
+}
+
+.content-review {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid white;
+  border-radius: 4px;
+  padding: 15px;
+  margin-top: 30px;
+  position: relative;
+}
+
+.user-name {
+  font-weight: bold;
+  margin: 0;
+}
+
+.description-review {
+  margin: 0;
+}
+
+.created-review {
+  color: gray;
+  font-weight: lighter;
+  margin-bottom: 10px;
+}
+
+.stars-rating {
+  position:absolute;
+  top: 12px;
+  right: 22px;
+}

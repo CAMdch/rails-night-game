@@ -3,5 +3,5 @@ class Review < ApplicationRecord
   belongs_to :game
 
   validates :content, presence: true
-  validates :user_id, uniqueness: true
+  validates :stars, numericality: { greater_than: 0, less_than_or_equal_to: 5}
 end

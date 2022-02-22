@@ -23,6 +23,7 @@ puts "Delete all users"
 User.destroy_all
 
 puts "Creating users"
+
 alexis = User.new( name: "Alexis Sion", email: "alexis@gmail.com", phone: "0611223344", password: "azerty")
 alexis.save!
 camille = User.new( name: "Camille Dauchy", email: "camille@gmail.com", phone: "0622334455", password: "azerty")
@@ -33,6 +34,7 @@ emily.save!
 puts "#{User.count} User Created !"
 
 puts "Creating games"
+
 photo_root = URI.open('https://d2k4q26owzy373.cloudfront.net/350x350/games/uploaded/1629324760985.jpg')
 root = Game.new( name: "Root", description: "Find adventure in this marvelous asymmetric game.", price: "5€", min_player:"2", max_player:"4" , playtime:"60min" , address: "Lille" , user: alexis )
 root.photo.attach(io: photo_root, filename: 'root-image.jpg', content_type: 'image/jpg')
@@ -71,5 +73,6 @@ booking_1 = Booking.new(user: emily, game: root, date_begin: Date.today,date_end
 booking_1.save!
 booking_2 = Booking.new(user: emily, game: pandemic, date_begin: Date.today + 5,date_end: Date.today + 9)
 booking_2.save!
+
 
 puts " #{Booking.count}Booking Created !"

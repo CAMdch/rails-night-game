@@ -1,0 +1,2 @@
+class WichlistsController < ApplicationController
+end

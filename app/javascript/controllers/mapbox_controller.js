@@ -42,11 +42,4 @@ export default class extends Controller {
     this.map.fitBounds(bounds, { padding: 70, maxZoom: 20, duration: 0 })
   }
 
-  #setInputValue(event) {
-    this.addressTarget.value = event.result["place_name"]
-  }
-
-  #clearInputValue() {
-    this.addressTarget.value = ""
-  }
 }

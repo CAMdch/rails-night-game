@@ -40,7 +40,7 @@
         <div class="form-date">
           <p><strong><%= @game.price%></strong> / night</p>
 
-          <div data-controller="flatpicker" data-flatpicker-target="bookings" data-bookings-value="<%= @booking_json%>">
+          <div data-controller="flatpicker" data-flatpicker-target="bookings" data-flatpicker-bookings-value="<%= @booking_json.to_json%>">
             <%= simple_form_for [@game, @booking] do |f| %>
               <%= f.input :date_begin, as: :string, required: false, input_html: { data: { flatpicker_target: "start" } } %>
               <%= f.input :date_end, as: :string, required: false, input_html: { data: { flatpicker_target: "end" } } %>
@@ -98,6 +98,9 @@
       </div>
     </div>
   </div>
+
+
+
 </div>
 <%# <%= cl_image_tag("ydqbpxoslrtixlkkyair",
        width: 400, height: 300, crop: :fill) %>

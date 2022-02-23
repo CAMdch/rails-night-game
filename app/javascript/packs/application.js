@@ -8,6 +8,7 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 
+
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
@@ -15,10 +16,7 @@ ActiveStorage.start()
 import "controllers"
 import "bootstrap"
 
-// import { initFlatpickr } from "../plugins/flatpickr";
 
-// initFlatpickr();
+// import { initStarRating } from '../plugins/init_star_rating';
 
-import { initStarRating } from '../plugins/init_star_rating';
-
-initStarRating();
+// initStarRating();

@@ -3,6 +3,7 @@
 
   <h4 class="btn btn-unactive" data-action = "click->viewprofil#display" data-choice="products" data-viewprofil-target="btnproducts">Your products</h4>
   <h4 class="btn btn-active" data-action = "click->viewprofil#display" data-choice="bookings" data-viewprofil-target="btnbookings">Your bookings</h4>
+  <h4 class="btn btn-unactive" data-action = "click->viewprofil#display" data-choice="history" data-viewprofil-target="btnhistory">Your history</h4>
 
   <div class="products-view  d-none" data-viewprofil-target="products">
     <div class="row">
@@ -31,37 +32,79 @@
   <div class="bookings-view" data-viewprofil-target="bookings">
     <div class="row">
       <%@bookings.each do |booking|%>
-        <div class="col-lg-6 col-sm-12">
-          <div class="card-product-booking">
-            <%=cl_image_tag booking.game.photo.key%>
-            <div class="card-product-infos">
-                <h3><%= booking.game.name%></h3>
-                <p><strong>Start date :</strong> <%= booking.date_begin%></p>
-                <p><strong>End date :</strong> <%= booking.date_end%></p>
-                <div class="pending-status">
-                  <%if booking.status == "Accept"%>
-                    <div class="status-accept">
-                      <p><strong>Status :</strong> <%= booking.status%></p>
-                      <p><strong>Contact :</strong> <%= booking.game.user.email%></p>
-                    </div>
-                  <%elsif booking.status == "Decline"%>
-                    <div class="status-decline">
-                      <p><strong>Status :</strong> <%= booking.status%></p>
-                    </div>
-                  <%else%>
-                    <div class="status-waiting">
-                      <p><strong>Status :</strong> <%= booking.status%></p>
-                    </div>
-                  <%end%>
-                </div>
-            </div>
-            <div class="trash">
-              <%= link_to booking_path(booking), method: :delete do%>
-                <i class="fas fa-trash-alt"></i>
-              <%end%>
+        <%if booking.date_end > Time.now %>
+          <div class="col-lg-6 col-sm-12">
+            <div class="card-product-booking">
+              <%=cl_image_tag booking.game.photo.key%>
+              <div class="card-product-infos">
+                  <h3><%= booking.game.name%></h3>
+                  <p><strong>Start date :</strong> <%= booking.date_begin%></p>
+                  <p><strong>End date :</strong> <%= booking.date_end%></p>
+                  <div class="pending-status">
+                    <%if booking.status == "Accept"%>
+                      <div class="status-accept">
+                        <p><strong>Status :</strong> <%= booking.status%></p>
+                        <p><strong>Contact :</strong> <%= booking.game.user.email%></p>
+                      </div>
+                    <%elsif booking.status == "Decline"%>
+                      <div class="status-decline">
+                        <p><strong>Status :</strong> <%= booking.status%></p>
+                      </div>
+                    <%else%>
+                      <div class="status-waiting">
+                        <p><strong>Status :</strong> <%= booking.status%></p>
+                      </div>
+                    <%end%>
+                  </div>
+              </div>
+              <div class="trash">
+                <%= link_to booking_path(booking), method: :delete do%>
+                  <i class="fas fa-trash-alt"></i>
+                <%end%>
+              </div>
             </div>
           </div>
-        </div>
+        <%end%>
+      <%end%>
+    </div>
+  </div>
+
+  <div class="history-view" data-viewprofil-target="history">
+     <div class="row">
+      <%@bookings.each do |booking|%>
+        <%if booking.status == "Accept" && booking.date_end < Time.now %>
+          <div class="col-lg-6 col-sm-12">
+            <div class="card-product-booking">
+              <%=cl_image_tag booking.game.photo.key%>
+              <div class="card-product-infos">
+                  <h3><%= booking.game.name%></h3>
+                  <p><strong>Start date :</strong> <%= booking.date_begin%></p>
+                  <p><strong>End date :</strong> <%= booking.date_end%></p>
+                  <div class="pending-status">
+                    <%if booking.status == "Accept"%>
+                      <div class="status-accept">
+                        <p><strong>Status :</strong> <%= booking.status%></p>
+                        <p><strong>Contact :</strong> <%= booking.game.user.email%></p>
+                      </div>
+                    <%elsif booking.status == "Decline"%>
+                      <div class="status-decline">
+                        <p><strong>Status :</strong> <%= booking.status%></p>
+                      </div>
+                    <%else%>
+                      <div class="status-waiting">
+                        <p><strong>Status :</strong> <%= booking.status%></p>
+                      </div>
+                    <%end%>
+                  </div>
+              </div>
+              <div class="trash">
+                <%= link_to booking_path(booking), method: :delete do%>
+                  <i class="fas fa-trash-alt"></i>
+                <%end%>
+              </div>
+            </div>
+          </div>
+        <%end%>
       <%end%>
     </div>
   </div>

@@ -19,6 +19,9 @@ Booking.destroy_all
 puts "Delete all reviews"
 Review.destroy_all
 
+puts "Delete all wichlists"
+Wichlist.destroy_all
+
 puts "Delete all games"
 Game.destroy_all
 

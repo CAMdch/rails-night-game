@@ -1,8 +1,9 @@
 .search-bar {
   border-radius: 40px;
+  width: 80%;
   padding-left: 35px;
   padding-right: 35px;
-  position: relative;
+  margin-left: 64px;
   background-color: transparent;
   border: 2px solid white;
   color: white;
@@ -13,5 +14,29 @@
   &:focus{
     color: white;
     outline: none;
+  }
+}
+
+.btn-submit-round {
+  color: white;
+  font-family: $body-font;
+  text-decoration: none;
+  border: 1px solid white;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  padding-right: 12px;
+  padding-left: 12px;
+  border-radius: 50%;
+  transition: 1s;
+  background-color: #df0adf;
+  position: relative;
+  right: 64px;
+  bottom: -1px;
+  &:hover {
+     text-decoration: none;
+    transition: 1s;
+    background-color: white;
+    color: $pink;
+    transition: 1s;
   }
 }

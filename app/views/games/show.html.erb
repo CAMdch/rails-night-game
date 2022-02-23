@@ -82,8 +82,9 @@
         </div>
       </div>
 
+
       <div class="col-lg-4 col-sm-12" data-controller="availablereview" data-availablereview-reviews-value="<%= @review_availablility%>">
-        <div class="add-review" data-availablereview-target="form">
+        <div class="add-review" data-controller="review" data-availablereview-target="form">
           <%= simple_form_for [@game, @review] do |f|%>
             <%= f.input :content%>
             <%= f.input :stars, collection: 1..5%>

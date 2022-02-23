@@ -1,52 +1,60 @@
 <div class="container">
   <div class="row">
-    <div class="col-lg-8 col-sm-12 text-center">
-      <div class="information">
-        <h1><%=@game.name%></h1>
-
-        <%=cl_image_tag @game.photo.key, class:"game-image"%>
-
-
-        <div class="d-flex justify-content-center">
-          <div class="details">
-            <div class="detail">
-              <i class="fas fa-coins"></i>
-              <p><%=@game.price%>$</p>
-            </div>
-            <div class="detail">
-              <i class="fas fa-user-friends"></i>
-              <p><%=@game.min_player%>-<%=@game.max_player%> players</p>
-            </div>
-            <div class="detail">
-              <i class="fas fa-clock"></i>
-              <p><%=@game.playtime%> mins</p>
-            </div>
+    <h1><%=@game.name%></h1>
+   <div class="row-row">
+      <div class="col-lg-8 col-sm-12 text-center">
+        <div class="information">
+          <div class="image-left">
+            <%=cl_image_tag @game.photo.key, class:"game-image"%>
+          </div>
+          <div class="description">
+          <div class="elements-right">
+              <div class="details">
+                <div class="detail">
+                  <i class="fas fa-coins"></i>
+                  <p><%=@game.price%>$</p>
+                </div>
+                <div class="detail">
+                  <i class="fas fa-user-friends"></i>
+                  <p><%=@game.min_player%>-<%=@game.max_player%> players</p>
+                </div>
+                <div class="detail">
+                  <i class="fas fa-clock"></i>
+                  <p><%=@game.playtime%> mins</p>
+                </div>
+              </div>
+              <div class="description">
+              <div class="description-title">
+                  <h2>Description</h2>
+              </div>
+              <div class="game-description">
+                <p><%= @game.description%></p>
+              </div>
+              </div>
+          </div>
           </div>
         </div>
-        <div class="description">
-          <h2>Description</h2>
-          <p><%= @game.description%></p>
-        </div>
       </div>
-    </div>
 
-    <div class="col-lg-4 col-sm-12">
-      <div class="form-date">
-        <p><strong><%= @game.price%></strong> / night</p>
+      <div class="col-lg-4 col-sm-12">
+        <div class="form-date">
+          <p><strong><%= @game.price%></strong> / night</p>
 
-        <div data-controller="flatpicker" data-flatpicker-target="bookings" data-bookings-value="<%= @booking_json%>">
-          <%= simple_form_for [@game, @booking] do |f| %>
-            <%= f.input :date_begin, as: :string, required: false, input_html: { data: { flatpicker_target: "start" } } %>
-            <%= f.input :date_end, as: :string, required: false, input_html: { data: { flatpicker_target: "end" } } %>
-            <%= f.button :submit, "Book", class: "btn-submit mt-2" %>
-          <% end %>
+          <div data-controller="flatpicker" data-flatpicker-target="bookings" data-bookings-value="<%= @booking_json%>">
+            <%= simple_form_for [@game, @booking] do |f| %>
+              <%= f.input :date_begin, as: :string, required: false, input_html: { data: { flatpicker_target: "start" } } %>
+              <%= f.input :date_end, as: :string, required: false, input_html: { data: { flatpicker_target: "end" } } %>
+              <%= f.button :submit, "Book", class: "btn-submit mt-2" %>
+            <% end %>
+
+          </div>
+
 
         </div>
 
-
       </div>
 
-    </div>
+   </div>
   </div>
 
   <div class="review border-top pt-2">

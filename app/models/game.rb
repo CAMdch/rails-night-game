@@ -6,7 +6,7 @@ class Game < ApplicationRecord
   has_many :bookings, dependent: :destroy
   has_many :users, through: :bookings
   has_one_attached :photo, dependent: :destroy
-  has_many :reviews
+  has_many :reviews, dependent: :destroy
 
   validates :description, :name, :price, :address, :min_player, :max_player, :playtime, :photo, presence: true
   validates :name, length: { in: 3..60 }

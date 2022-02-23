@@ -4,7 +4,7 @@ import rangePlugin from "flatpickr/dist/plugins/rangePlugin"
 
 export default class extends Controller {
   static targets = ["start", "end", "bookings"]
-
+  static values = {bookings: Array}
 
   connect() {
       flatpickr(this.startTarget, {
@@ -12,18 +12,8 @@ export default class extends Controller {
         plugins: [new rangePlugin({ input: this.endTarget})],
         minDate: 'today',
         dateFormat: "Y-m-d",
-        disbale: [
-          {
-              from: "2022-04-01",
-              to: "2022-05-01"
-          },
-          {
-              from: "2022-09-01",
-              to: "2022-12-01"
-          }
-      ]
+        disable: this.bookingsValue
       });
-      console.log(this.bookingsTarget.dataset.bookingsValue)
     }
 
 

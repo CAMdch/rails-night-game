@@ -29,11 +29,14 @@ class GamesController < ApplicationController
     @review = Review.new
     @reviews = Review.where('game_id = ?', @game.id)
     @average_stars = average_stars
-    # @booking_json = @game.bookings.map do |booking|
-    #   start_date = booking.date_begin.strftime('%Y-%m-%d')
-    #   end_date = booking.date_end.strftime('%Y-%m-%d')
-    #   { "from" => start_date, "to" => end_date }
-    # end
+
+    @booking_json = @game.bookings.map do |booking|
+      if booking.status == "Accept"
+        start_date = booking.date_begin.strftime('%Y-%m-%d')
+        end_date = booking.date_end.strftime('%Y-%m-%d')
+        { from: start_date, to: end_date }
+      end
+    end
   end
 
   def create

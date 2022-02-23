@@ -16,6 +16,9 @@ require "open-uri"
 puts "Delete all bookings"
 Booking.destroy_all
 
+puts "Delete all reviews"
+Review.destroy_all
+
 puts "Delete all games"
 Game.destroy_all
 

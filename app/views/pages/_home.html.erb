@@ -1,35 +1,50 @@
 <%= render 'shared/banner-homepage' %>
-<div class="container">
+<div class="container mb-5">
   <div class="row">
-    <%@games.each do |game|%>
-      <div class="col-lg-4 col-sm-12">
-        <%= link_to game_path(game), class:"btn-card" do%>
-          <div class="card-trip">
-            <%= cl_image_tag(game.photo.key, crop: :fill) %>
-            <div class="card-trip-infos">
-              <div>
-                <div class="card-trip-title">
-                  <h2><%= game.name%></h2>
-                </div>
-                <div class="filters">
-                  <div class="symbol">
-                    <i class="fas fa-coins"></i>
-                    <p> <%=game.price%>$ </p>
-                  </div>
-                  <div class="symbol">
-                    <i class="fas fa-user-friends"></i>
-                    <p><%=game.min_player%>-<%=game.max_player%> players</p>
-                  </div>
-                  <div class="symbol">
-                    <i class="fas fa-clock"></i>
-                    <p><%=game.playtime%> mins</p>
+    <div class="col-8">
+      <div class="row">
+        <%@games.each do |game|%>
+          <div class="col-lg-6 col-sm-12">
+            <%= link_to game_path(game), class:"btn-card" do%>
+              <div class="card-trip">
+                <%= cl_image_tag(game.photo.key, crop: :fill) %>
+                <div class="card-trip-infos">
+                  <div>
+                    <div class="card-trip-title">
+                      <h2><%= game.name%></h2>
+                    </div>
+                    <div class="filters">
+                      <div class="symbol">
+                        <i class="fas fa-coins"></i>
+                        <p> <%=game.price%>$ </p>
+                      </div>
+                      <div class="symbol">
+                        <i class="fas fa-user-friends"></i>
+                        <p><%=game.min_player%>-<%=game.max_player%> players</p>
+                      </div>
+                      <div class="symbol">
+                        <i class="fas fa-clock"></i>
+                        <p><%=game.playtime%> mins</p>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
+            <%end%>
           </div>
         <%end%>
       </div>
-    <%end%>
+    </div>
+
+    <div class="col-4">
+      <div style="width: 100%;"
+          data-controller="mapbox"
+          data-mapbox-markers-value="<%= @markers.to_json %>"
+          data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
+          class="map-home">
+      </div>
+
+    </div>
   </div>
+
 </div>

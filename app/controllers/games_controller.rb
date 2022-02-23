@@ -9,6 +9,15 @@ class GamesController < ApplicationController
     else
       @games = Game.all
     end
+
+    @markers = @games.geocoded.map do |game|
+      {
+        lat: game.latitude,
+        lng: game.longitude,
+        info_window: render_to_string(partial: "games/info_window", locals: { game: game })
+
+      }
+    end
   end
 
   def new

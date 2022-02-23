@@ -39,17 +39,13 @@
       <div class="col-lg-4 col-sm-12">
         <div class="form-date">
           <p><strong><%= @game.price%></strong> / night</p>
-
           <div data-controller="flatpicker" data-flatpicker-target="bookings" data-flatpicker-bookings-value="<%= @booking_json.to_json%>">
             <%= simple_form_for [@game, @booking] do |f| %>
               <%= f.input :date_begin, as: :string, required: false, input_html: { data: { flatpicker_target: "start" } } %>
               <%= f.input :date_end, as: :string, required: false, input_html: { data: { flatpicker_target: "end" } } %>
               <%= f.button :submit, "Book", class: "btn-submit mt-2" %>
             <% end %>
-
           </div>
-
-
         </div>
 
       </div>
@@ -86,13 +82,17 @@
         </div>
       </div>
 
-      <div class="col-lg-4 col-sm-12">
-        <div class="add-review">
+      <div class="col-lg-4 col-sm-12" data-controller="availablereview" data-availablereview-reviews-value="<%= @review_availablility%>">
+        <div class="add-review" data-availablereview-target="form">
           <%= simple_form_for [@game, @review] do |f|%>
             <%= f.input :content%>
             <%= f.input :stars, collection: 1..5%>
             <%= f.submit class: "btn-submit mt-2" %>
           <%end%>
+        </div>
+
+        <div class="invailable-review d-none" data-availablereview-target="sorrymessage">
+          <p> Sorry 😔 You can't review a game twice ...</p>
         </div>
 
       </div>

@@ -19,6 +19,6 @@ import "bootstrap"
 
 // initFlatpickr();
 
-import { initStarRating } from '../plugins/init_star_rating';
+// import { initStarRating } from '../plugins/init_star_rating';
 
-initStarRating();
+// initStarRating();

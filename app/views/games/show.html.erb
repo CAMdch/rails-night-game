@@ -87,7 +87,7 @@
       </div>
 
       <div class="col-lg-4 col-sm-12">
-        <div class="add-review">
+        <div class="add-review" data-controller="review">
           <%= simple_form_for [@game, @review] do |f|%>
             <%= f.input :content%>
             <%= f.input :stars, collection: 1..5%>

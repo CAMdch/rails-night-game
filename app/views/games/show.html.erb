@@ -90,7 +90,7 @@
         <div class="add-review">
           <%= simple_form_for [@game, @review] do |f|%>
             <%= f.input :content%>
-            <%= f.input :stars%>
+            <%= f.input :stars, collection: 1..5%>
             <%= f.submit class: "btn-submit mt-2" %>
           <%end%>
         </div>

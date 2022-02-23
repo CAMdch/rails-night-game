@@ -2,7 +2,7 @@
   <div class="row">
     <h1><%=@game.name%></h1>
    <div class="row-row mb-5">
-      <div class="col-lg-8 col-sm-12 text-center">
+      <div class="col-lg-9 col-sm-12 text-center">
         <div class="information">
           <div class="image-left">
             <%=cl_image_tag @game.photo.key, class:"game-image"%>
@@ -36,7 +36,7 @@
         </div>
       </div>
 
-      <div class="col-lg-4 col-sm-12">
+      <div class="col-lg-3 col-sm-12">
         <div class="form-date">
           <p><strong><%= @game.price%></strong> / night</p>
           <div data-controller="flatpicker" data-flatpicker-target="bookings" data-flatpicker-bookings-value="<%= @booking_json.to_json%>">

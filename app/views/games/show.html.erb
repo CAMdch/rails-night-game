@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <h1><%=@game.name%></h1>
-   <div class="row-row">
+   <div class="row-row mb-5">
       <div class="col-lg-8 col-sm-12 text-center">
         <div class="information">
           <div class="image-left">
@@ -97,6 +97,14 @@
 
       </div>
     </div>
+  </div>
+
+
+  <div style="width: 100%; height: 300px;"
+    data-controller="mapbox"
+    data-mapbox-markers-value="<%= @marker.to_json %>"
+    data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
+    class="my-5">
   </div>
 
 

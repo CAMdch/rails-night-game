@@ -13,6 +13,9 @@
             <%= link_to game_path(game), class:"btn-card" do%>
               <div class="card-trip">
                 <%= cl_image_tag(game.photo.key, crop: :fill) %>
+                <div class= "wishlist-heart">
+                  <i class="fas fa-heart"></i>
+                </div>
                 <div class="card-trip-infos">
                   <div>
                     <div class="card-trip-title">

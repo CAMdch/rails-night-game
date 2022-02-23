@@ -58,7 +58,7 @@
   width: 287px;
 }
 .card-trip .card-trip-infos {
-  padding: 16px;
+  padding: 0px 16px 16px 16px;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
@@ -77,6 +77,14 @@
   text-decoration: none;
 }
 
+.wishlist-heart {
+  position: relative;
+  font-size: 163%;
+  left: 280px;
+  top: -209px;
+  color: #670099;
+
+}
 
 // this is the html format you should use:
 

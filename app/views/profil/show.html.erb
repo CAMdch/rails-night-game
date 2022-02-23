@@ -1,10 +1,10 @@
 <div class="container" data-controller="viewprofil">
   <h2>Hello <%=current_user.name%></h2>
 
-  <h4 class="btn btn-active" data-action = "click->viewprofil#display" data-choice="products" data-viewprofil-target="btnproducts">Your products</h4>
-  <h4 class="btn btn-unactive" data-action = "click->viewprofil#display" data-choice="bookings" data-viewprofil-target="btnbookings">Your bookings</h4>
+  <h4 class="btn btn-unactive" data-action = "click->viewprofil#display" data-choice="products" data-viewprofil-target="btnproducts">Your products</h4>
+  <h4 class="btn btn-active" data-action = "click->viewprofil#display" data-choice="bookings" data-viewprofil-target="btnbookings">Your bookings</h4>
 
-  <div class="products-view" data-viewprofil-target="products">
+  <div class="products-view  d-none" data-viewprofil-target="products">
     <div class="row">
       <%@games.each do |game|%>
         <div class="col-lg-6 col-sm-12">
@@ -28,7 +28,7 @@
     </div>
   </div>
 
-  <div class="bookings-view d-none" data-viewprofil-target="bookings">
+  <div class="bookings-view" data-viewprofil-target="bookings">
     <div class="row">
       <%@bookings.each do |booking|%>
         <div class="col-lg-6 col-sm-12">

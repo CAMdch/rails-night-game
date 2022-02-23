@@ -18,7 +18,7 @@ class GamesController < ApplicationController
   def show
     @booking = Booking.new
     @review = Review.new
-    @reviews = Review.all
+    @reviews = Review.where('game_id = ?', @game.id)
     @average_stars = average_stars
     # @booking_json = @game.bookings.map do |booking|
     #   start_date = booking.date_begin.strftime('%Y-%m-%d')
@@ -58,7 +58,7 @@ class GamesController < ApplicationController
     sum_stars = @review_all.map do |review|
       review.stars
     end
-    average_stars = sum_stars.sum / @review_all.count
+    @review_all.count.zero? ? average_stars = 0 : average_stars = sum_stars.sum / @review_all.count
     return average_stars
   end
 

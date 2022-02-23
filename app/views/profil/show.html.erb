@@ -9,7 +9,7 @@
       <%@games.each do |game|%>
         <div class="col-lg-6 col-sm-12">
           <div class="card-product">
-              <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+            <%=cl_image_tag game.photo.key%>
             <div class="card-product-infos">
                 <h3><%= game.name%></h3>
                 <div class="icon-status">
@@ -33,7 +33,7 @@
       <%@bookings.each do |booking|%>
         <div class="col-lg-6 col-sm-12">
           <div class="card-product-booking">
-            <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+            <%=cl_image_tag booking.game.photo.key%>
             <div class="card-product-infos">
                 <h3><%= booking.game.name%></h3>
                 <p><strong>Start date :</strong> <%= booking.date_begin%></p>

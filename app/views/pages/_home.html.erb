@@ -1,5 +1,10 @@
 <%= render 'shared/banner-homepage' %>
 <div class="container mb-5">
+  <%if params[:query].present?%>
+    <h2>We found <%=@games.count%> result(s) corresponding to your search : <%= params[:query]%> </h2>
+  <%else%>
+    <h1>All our board games</h1>
+  <%end%>
   <div class="row">
     <div class="col-8">
       <div class="row">

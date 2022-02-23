@@ -1,2 +1,7 @@
-<h2><%= game.name %></h2>
-<p><%= game.address %></p>
+<div class="pop-up">
+  <%=cl_image_tag game.photo.key%>
+  <div class="info-pop">
+    <h2><%= game.name %></h2>
+    <p><%= game.address %></p>
+  </div>
+</div>

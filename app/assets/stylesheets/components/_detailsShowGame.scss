@@ -8,7 +8,7 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
-  width: 60%;
+
 
   p {
     margin-bottom: 0;
@@ -27,7 +27,9 @@
   display: flex;
 }
 
-
+.image-left{
+width: 50%;
+}
 .game-image{
   border: 1px solid $pink;
   border-radius: 15px;
@@ -35,11 +37,40 @@
   max-width: 350px;
 }
 
+.row-row{
+  display: inline-flex;
+}
+
+.information{
+  display: flex;
+}
+
+.description{
+  height: 100%;
+  text-align: center;
+  padding: 0 15px;
+}
+
+.description-title{
+  text-align: center;
+}
+.game-description{
+  text-align: left;
+}
+
+.element-right{
+  width: 50%;
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+}
+
 .form-date {
   border: 1px solid $pink;
   border-radius: 15px;
   padding: 15px;
-  margin-top: 65px;
+  height: 350px;
 }
 
 .input-date {

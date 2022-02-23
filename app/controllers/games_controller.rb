@@ -37,6 +37,8 @@ class GamesController < ApplicationController
         { from: start_date, to: end_date }
       end
     end
+
+    @marker = [{ lat: @game.latitude, lng: @game.longitude }]
   end
 
   def create

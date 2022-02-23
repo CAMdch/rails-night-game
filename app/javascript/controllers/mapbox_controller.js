@@ -8,7 +8,6 @@ export default class extends Controller {
     markers: Array
   }
 
-
   connect() {
     mapboxgl.accessToken = this.apiKeyValue
 
@@ -22,8 +21,6 @@ export default class extends Controller {
 
     this.map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
     mapboxgl: mapboxgl }));
-
-
   }
 
   #addMarkersToMap() {

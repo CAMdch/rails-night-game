@@ -30,10 +30,14 @@ class BookingsController < ApplicationController
 
   def accept
     @booking = Booking.find(params[:id])
-    @booking.status = "Accept"
-    @booking.save
-    @game = @booking.game
-    redirect_to game_bookings_path(@game)
+    if time_overlap?
+      flash[:alert] = ""
+    else
+      @booking.status = "Accept"
+      @booking.save
+      @game = @booking.game
+    end
+    redirect_to game_bookings_path(@booking.game)
   end
 
   def destroy
@@ -47,4 +51,42 @@ class BookingsController < ApplicationController
   def booking_params
     params.require(:booking).permit(:date_end, :date_begin)
   end
+
+  def time_overlap?
+    @booking = Booking.find(params[:id])
+    @overlap_count = 0
+    @booking.game.bookings.each do |game_booking|
+      overlap_filter1 = game_booking.date_begin.between?(@booking.date_begin, @booking.date_end)
+      overlap_filter2 = game_booking.date_end.between?(@booking.date_begin, @booking.date_end)
+      overlap_filter3 = @booking.date_begin.between?(game_booking.date_begin, game_booking.date_end)
+      overlap_filter4 = @booking.date_end.between?(game_booking.date_begin, game_booking.date_end)
+      overlap_filters = overlap_filter1 || overlap_filter2 || overlap_filter3 || overlap_filter4
+      different_booking = game_booking != @booking
+      @overlap_count += 1 if different_booking && overlap_filters && game_booking.status == "Accept"
+    end
+    return @overlap_count != 0
+  end
 end
+
+# def accept
+#   @booking = Booking.find(params[:id])
+#   @overlap = 0
+#   @booking.game.bookings.each do |game_booking|
+#     overlap_filter1 = game_booking.date_begin.between?(@booking.date_begin, @booking.date_end)
+#     overlap_filter2 = game_booking.date_end.between?(@booking.date_begin, @booking.date_end)
+#     overlap_filter3 = @booking.date_begin.between?(game_booking.date_begin, game_booking.date_end)
+#     overlap_filter4 = @booking.date_end.between?(game_booking.date_begin, game_booking.date_end)
+#     overlap = overlap_filter1 || overlap_filter2 || overlap_filter3 || overlap_filter4
+#     if game_booking != @booking && overlap && game_booking.status == "Accept"
+#       @overlap += 1
+#     end
+#   end
+#   if @overlap.zero?
+#     @booking.status = "Accept"
+#     @booking.save
+#     @game = @booking.game
+#   else
+#     flash[:alert] = ""
+#   end
+#   redirect_to game_bookings_path(@booking.game)
+# end

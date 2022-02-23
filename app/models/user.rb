@@ -4,7 +4,11 @@ class User < ApplicationRecord
   has_many :bookings
   has_many :games, through: :bookings
   has_many :reviews
+
   has_one_attached :photo
+
+  has_many :wichlists
+
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable

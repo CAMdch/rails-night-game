@@ -1,3 +1,16 @@
+
+<%# <% if @overlap != 0 %>
+  <%# <%=  flash.alert = "User not found." %>
+<%# <% end %>
+
+<% if flash[:alert] %>
+   <div class="alert alert-dark alert-dismissible fade show" role="alert">
+    There is a <strong>time overlap</strong> between this booking and another one. If you wish to accept this offer, please decline the other one first.
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+    </button>
+  </div>
+<% end %>
+
 <div class="container">
   <h2 class ="mb-3">All your bookings for <%= @game.name%></h2>
   <div class="row">

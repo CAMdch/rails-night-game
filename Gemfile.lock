@@ -132,6 +132,15 @@ GEM
     mini_magick (4.11.0)
     mini_mime (1.1.2)
     minitest (5.15.0)
+    monetize (1.12.0)
+      money (~> 6.12)
+    money (6.16.0)
+      i18n (>= 0.6.4, <= 2)
+    money-rails (1.15.0)
+      activesupport (>= 3.0)
+      monetize (~> 1.9)
+      money (~> 6.13)
+      railties (>= 3.0)
     msgpack (1.4.5)
     netrc (0.11.0)
     nio4r (2.5.8)
@@ -227,6 +236,7 @@ GEM
       actionpack (>= 5.2)
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
+    stripe (5.44.0)
     thor (1.2.1)
     tilt (2.0.10)
     turbolinks (5.2.1)
@@ -277,6 +287,7 @@ DEPENDENCIES
   jbuilder (~> 2.7)
   listen (~> 3.3)
   mini_magick
+  money-rails
   pg (~> 1.1)
   pry-byebug
   pry-rails
@@ -287,6 +298,7 @@ DEPENDENCIES
   selenium-webdriver
   simple_form
   spring
+  stripe
   turbolinks (~> 5)
   tzinfo-data
   web-console (>= 4.1.0)

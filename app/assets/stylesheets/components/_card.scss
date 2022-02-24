@@ -4,13 +4,13 @@
   background: $dark-purple;
   border: 1px solid $purple;
   border-radius: 10px;
-  width: 322px;
+  width: 100%;
   margin-top: 45px;
 }
 
 .card-trip > img {
   height: 215px;
-  width: 322px;
+  width: 100%;
   object-fit: cover;
 }
 
@@ -19,6 +19,13 @@
   font-family: $headers-font;
   font-size: 20px;
   font-weight: 400;
+  margin: 10px;
+}
+
+.card-trip h3 {
+  font-size: 15px;
+  color: $light-gray;
+  font-family: $body-font;
   margin: 10px;
 }
 
@@ -55,7 +62,7 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
-  width: 287px;
+  width: 378px;
 }
 .card-trip .card-trip-infos {
   padding: 0px 16px 16px 16px;

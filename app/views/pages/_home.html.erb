@@ -10,36 +10,49 @@
       <div class="row">
         <%@games.each do |game|%>
           <div class="col-lg-6 col-sm-12">
-            <%= link_to game_path(game), class:"btn-card" do%>
-              <div class="card-trip">
-                <%= cl_image_tag(game.photo.key, crop: :fill) %>
-                <div class= "wishlist-heart">
-                  <i class="fas fa-heart"></i>
+            <div class="hearts-absolute">
+              <div id=<%=game.id%> >
+                <div class="favorite-hearts" >
+                  <% if current_user.get_favorite(game)%>
+                    <%= link_to game_favorite_path(game, current_user.get_favorite(game) ), method: :delete, remote: true do%>
+                      <i class="far fa-heart"></i>
+                    <% end %>
+                  <% else %>
+                    <%= link_to game_favorites_path(game), method: :post, remote: true do%>
+                      <i class="fas fa-heart"></i>
+                    <% end %>
+                  <% end %>
                 </div>
-                <div class="card-trip-infos">
-                  <div>
-                    <div class="card-trip-title">
-                      <h2><%= game.name%></h2>
-                      <h3><%= game.address%></h3>
-                    </div>
-                    <div class="filters">
-                      <div class="symbol">
-                        <i class="fas fa-coins"></i>
-                        <p> <%=game.price%>$ </p>
+              </div>
+              <%= link_to game_path(game), class:"btn-card" do%>
+                <div class="card-trip">
+                  <%= cl_image_tag(game.photo.key, crop: :fill) %>
+                  <div class="card-trip-infos">
+                    <div>
+                      <div class="card-trip-title">
+                        <h2><%= game.name%></h2>
+                        <h3><%= game.address%></h3>
                       </div>
-                      <div class="symbol">
-                        <i class="fas fa-user-friends"></i>
-                        <p><%=game.min_player%>-<%=game.max_player%> players</p>
-                      </div>
-                      <div class="symbol">
-                        <i class="fas fa-clock"></i>
-                        <p><%=game.playtime%> mins</p>
+                      <div class="filters">
+                        <div class="symbol">
+                          <i class="fas fa-coins"></i>
+                          <p> <%=game.price%>$ </p>
+                        </div>
+                        <div class="symbol">
+                          <i class="fas fa-user-friends"></i>
+                          <p><%=game.min_player%>-<%=game.max_player%> players</p>
+                        </div>
+                        <div class="symbol">
+                          <i class="fas fa-clock"></i>
+                          <p><%=game.playtime%> mins</p>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            <%end%>
+              <%end%>
+            </div>
+
           </div>
         <%end%>
       </div>
@@ -57,3 +70,8 @@
   </div>
 
 </div>
+<%# <%= link_to wachlists_path do%>
+                    <%# <div class= "wishlist-heart">
+                      <i class="fas fa-heart"><%= game.id %></i>
+                    <%# </div>
+                    <% end %>

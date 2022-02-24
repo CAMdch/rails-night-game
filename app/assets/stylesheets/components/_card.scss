@@ -69,12 +69,10 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  position: relative;
 }
 
 .card-trip-pricing {
   color:aliceblue;
-  position: absolute;
   right: 16px;
   top: -20px;
   width: 40px;
@@ -84,13 +82,23 @@
   text-decoration: none;
 }
 
-.wishlist-heart {
+.hearts-absolute {
   position: relative;
+}
+.hearts-absolute .favorite-hearts {
+  position: absolute;
   font-size: 163%;
-  left: 280px;
-  top: -209px;
-  color: #670099;
+  right: 20px;
+  top: 10px;
+  color: $pink;
 
+}
+.favorite-hearts i:hover {
+  color: white;
+}
+
+.favorite-hearts i {
+  color: $pink;
 }
 
 // this is the html format you should use:

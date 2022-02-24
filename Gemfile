@@ -68,3 +68,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 gem 'mini_magick'
 gem "geocoder"
+gem 'money-rails'
+gem 'stripe'
+gem 'stripe_event'

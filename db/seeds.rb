@@ -73,7 +73,6 @@ viticulture = Game.new( name: "Viticulture", description: "Viticulture is a work
 viticulture.photos.attach(io: photo_viticulture, filename: 'viticulture-image.jpg', content_type: 'image/jpg')
 viticulture.save!
 
-
 puts " #{Game.count}Game Created !"
 
 

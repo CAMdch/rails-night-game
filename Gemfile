@@ -70,3 +70,4 @@ gem 'mini_magick'
 gem "geocoder"
 gem 'money-rails'
 gem 'stripe'
+gem 'stripe_event'

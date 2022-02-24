@@ -12,11 +12,12 @@ Rails.application.routes.draw do
       patch 'decline'
       patch 'accept'
     end
+    resources :payments, only: :new
   end
 
-  resources :bookings, only: :destroy
-
   resources :profil, only: :show
+
+  mount StripeEvent::Engine, at: '/stripe-webhooks'
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

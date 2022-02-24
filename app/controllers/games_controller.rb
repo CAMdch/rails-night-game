@@ -29,7 +29,6 @@ class GamesController < ApplicationController
     @review = Review.new
     @reviews = Review.where('game_id = ?', @game.id)
     @average_stars = average_stars
-
     @booking_json = @game.bookings.map do |booking|
       if booking.status == "Accept"
         start_date = booking.date_begin.strftime('%Y-%m-%d')

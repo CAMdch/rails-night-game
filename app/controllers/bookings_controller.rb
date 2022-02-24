@@ -1,17 +1,47 @@
 class BookingsController < ApplicationController
+  def show
+    @booking = current_user.bookings.find(params[:id])
+  end
   def create
     @booking = Booking.new(booking_params)
     @booking.game = Game.find(params[:game_id])
+    @game = Game.find(params[:game_id])
+    setting_booking
+    @booking.save
+    stripe_setting
+    # @reviews = Review.all
+    # @review = Review.new
+    # if @booking.save
+    #   redirect_to profil_path(current_user.id)
+    # else
+    #   render 'games/show'
+    # end
+  end
+
+  def setting_booking
     @booking.user = current_user
     @booking.status = "Waiting"
-    @game = Game.find(params[:game_id])
-    @reviews = Review.all
-    @review = Review.new
-    if @booking.save
-      redirect_to profil_path(current_user.id)
-    else
-      render 'games/show'
-    end
+    @booking.price_cents = ((@booking.date_end - @booking.date_begin) * @game.price) * 100
+    @booking.state = 'pending'
+    @booking.booking_sku = @game.name
+  end
+
+  def stripe_setting
+    session = Stripe::Checkout::Session.create(
+      payment_method_types: ['card'],
+      line_items: [{
+        name: @game.name,
+        images: [@game.photo],
+        amount: @booking.price_cents,
+        currency: 'eur',
+        quantity: 1
+      }],
+      success_url: booking_url(@booking),
+      cancel_url: booking_url(@booking)
+    )
+
+    @booking.update(checkout_session_id: session.id)
+    redirect_to new_booking_payment_path(@booking)
   end
 
   def index
@@ -49,7 +79,7 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:date_end, :date_begin)
+    params.require(:booking).permit(:date_end, :date_begin, :booking_sku)
   end
 
   def time_overlap?

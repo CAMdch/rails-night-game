@@ -20,7 +20,7 @@ puts "Delete all reviews"
 Review.destroy_all
 
 puts "Delete all wichlists"
-Wichlist.destroy_all
+Whichlist.destroy_all
 
 puts "Delete all games"
 Game.destroy_all
@@ -30,11 +30,13 @@ User.destroy_all
 
 puts "Creating users"
 
-alexis = User.new( name: "Alexis Sion", email: "alexis@gmail.com", phone: "0611223344", password: "azerty")
+photo_alexis = URI.open('https://previews.123rf.com/images/yupiramos/yupiramos1705/yupiramos170509105/77704043-personnage-d-avatar-jeune-homme-conception-d-illustration-vectorielle-isom%C3%A9trique.jpg')
+alexis = User.new(name: "Alexis Sion", email: "alexis@gmail.com", phone: "0611223344", password: "azerty")
+alexis.photo.attach(io: photo_alexis, filename: 'alexis-image.jpg', content_type: 'image/jpg')
 alexis.save!
-camille = User.new( name: "Camille Dauchy", email: "camille@gmail.com", phone: "0622334455", password: "azerty")
+camille = User.new(name: "Camille Dauchy", email: "camille@gmail.com", phone: "0622334455", password: "azerty")
 camille.save!
-emily = User.new( name: "Emily Haynes", email: "emily@gmail.com", phone: "0633445566", password: "azerty")
+emily = User.new(name: "Emily Haynes", email: "emily@gmail.com", phone: "0633445566", password: "azerty")
 emily.save!
 
 puts "#{User.count} User Created !"

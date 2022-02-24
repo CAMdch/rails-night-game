@@ -1,7 +1,9 @@
 <div class="pop-up">
-  <%=cl_image_tag game.photos.first.key%>
+  <div class="pop-up-image">
+    <%=cl_image_tag game.photos.first.key%>
+  </div>
   <div class="info-pop">
-    <h2><%= game.name %></h2>
+    <h2><%= link_to game.name, game_path(game) %></h2>
     <p><%= game.address %></p>
   </div>
 </div>

@@ -76,19 +76,6 @@ ActiveRecord::Schema.define(version: 2022_02_24_104629) do
     t.index ["user_id"], name: "index_games_on_user_id"
   end
 
-  create_table "orders", force: :cascade do |t|
-    t.string "state"
-    t.string "booking_sku"
-    t.integer "amount_cents", default: 0, null: false
-    t.string "checkout_session_id"
-    t.bigint "user_id", null: false
-    t.bigint "booking_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["booking_id"], name: "index_orders_on_booking_id"
-    t.index ["user_id"], name: "index_orders_on_user_id"
-  end
-
   create_table "reviews", force: :cascade do |t|
     t.text "content"
     t.float "stars"
@@ -129,8 +116,6 @@ ActiveRecord::Schema.define(version: 2022_02_24_104629) do
   add_foreign_key "bookings", "games"
   add_foreign_key "bookings", "users"
   add_foreign_key "games", "users"
-  add_foreign_key "orders", "bookings"
-  add_foreign_key "orders", "users"
   add_foreign_key "reviews", "games"
   add_foreign_key "reviews", "users"
   add_foreign_key "whichlists", "games"

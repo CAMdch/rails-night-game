@@ -12,7 +12,7 @@
           <div class="col-lg-6 col-sm-12">
             <%= link_to game_path(game), class:"btn-card" do%>
               <div class="card-trip">
-                <%= cl_image_tag(game.photo.key, crop: :fill) %>
+                <%= cl_image_tag(game.photos.first.key, crop: :fill) %>
                 <div class="card-trip-infos">
                   <div>
                     <div class="card-trip-title">

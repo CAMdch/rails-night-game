@@ -10,7 +10,7 @@
       <%@games.each do |game|%>
         <div class="col-lg-6 col-sm-12">
           <div class="card-product">
-            <%=cl_image_tag game.photo.key%>
+            <%=cl_image_tag game.photos.first.key%>
             <div class="card-product-infos">
                 <h3><%= game.name%></h3>
                 <div class="icon-status">
@@ -35,7 +35,7 @@
         <%if booking.date_end > Time.now %>
           <div class="col-lg-6 col-sm-12">
             <div class="card-product-booking">
-              <%=cl_image_tag booking.game.photo.key%>
+              <%=cl_image_tag booking.games.first.photo.key%>
               <div class="card-product-infos">
                   <h3><%= booking.game.name%></h3>
                   <p><strong>Start date :</strong> <%= booking.date_begin.strftime("%a, %d %b %Y")%></p>
@@ -75,7 +75,7 @@
         <%if booking.status == "Accept" && booking.date_end < Time.now %>
           <div class="col-lg-6 col-sm-12">
             <div class="card-product-booking">
-              <%=cl_image_tag booking.game.photo.key%>
+              <%=cl_image_tag booking.games.first.photo.key%>
               <div class="card-product-infos">
                   <h3><%= booking.game.name%></h3>
                   <p><strong>Start date :</strong> <%= booking.date_begin.strftime("%a, %d %b %Y")%></p>

@@ -85,6 +85,19 @@ ActiveRecord::Schema.define(version: 2022_02_24_112335) do
     t.index ["user_id"], name: "index_games_on_user_id"
   end
 
+  create_table "orders", force: :cascade do |t|
+    t.string "state"
+    t.string "booking_sku"
+    t.integer "amount_cents", default: 0, null: false
+    t.string "checkout_session_id"
+    t.bigint "user_id", null: false
+    t.bigint "booking_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["booking_id"], name: "index_orders_on_booking_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
+  end
+
   create_table "reviews", force: :cascade do |t|
     t.text "content"
     t.float "stars"
@@ -110,6 +123,16 @@ ActiveRecord::Schema.define(version: 2022_02_24_112335) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "whichlists", force: :cascade do |t|
+    t.boolean "like", default: false
+    t.bigint "user_id", null: false
+    t.bigint "game_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["game_id"], name: "index_whichlists_on_game_id"
+    t.index ["user_id"], name: "index_whichlists_on_user_id"
+  end
+
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "bookings", "games"
@@ -117,6 +140,10 @@ ActiveRecord::Schema.define(version: 2022_02_24_112335) do
   add_foreign_key "favorites", "games"
   add_foreign_key "favorites", "users"
   add_foreign_key "games", "users"
+  add_foreign_key "orders", "bookings"
+  add_foreign_key "orders", "users"
   add_foreign_key "reviews", "games"
   add_foreign_key "reviews", "users"
+  add_foreign_key "whichlists", "games"
+  add_foreign_key "whichlists", "users"
 end

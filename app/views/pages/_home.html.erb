@@ -20,11 +20,11 @@
                   <% unless current_user.nil? %>
                     <% if current_user.get_favorite(game)%>
                       <%= link_to game_favorite_path(game, current_user.get_favorite(game) ), method: :delete, remote: true do%>
-                        <i class="far fa-heart"></i>
+                        <i class="fas fa-heart"></i>
                       <% end %>
                     <% else %>
                       <%= link_to game_favorites_path(game), method: :post, remote: true do%>
-                        <i class="fas fa-heart"></i>
+                        <i class="far fa-heart"></i>
                       <% end %>
                     <% end %>
                   <% end %>

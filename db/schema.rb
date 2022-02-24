@@ -51,6 +51,11 @@ ActiveRecord::Schema.define(version: 2022_02_24_112335) do
     t.string "status"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "price_cents", default: 0, null: false
+    t.string "state"
+    t.string "booking_sku"
+    t.integer "amount_cents", default: 0, null: false
+    t.string "checkout_session_id"
     t.index ["game_id"], name: "index_bookings_on_game_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end

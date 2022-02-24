@@ -21,9 +21,10 @@
           <div class="booking-card">
             <div class="booking-information">
               <p><strong>Customer :</strong> <%= booking.user.name%></p>
-              <p><strong>Start date :</strong> <%= booking.date_begin%></p>
-              <p><strong>Start end :</strong> <%= booking.date_end%></p>
+              <p><strong>Start date :</strong> <%= booking.date_begin.strftime("%a, %d %b %Y")%></p>
+              <p><strong>Start end :</strong> <%= booking.date_end.strftime("%a, %d %b %Y")%></p>
               <p><strong>Status :</strong> <%= booking.status%></p>
+              <p><strong>Payment status :</strong> <%= booking.state%></p>
             </div>
 
             <div class="update-status">

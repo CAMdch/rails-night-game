@@ -24,23 +24,23 @@
                   <% end %>
                 </div>
               </div>
-              <%= link_to game_path(game), class:"btn-card" do%>
-                <div class="card-trip">
-                  <%= cl_image_tag(game.photo.key, crop: :fill) %>
-                  <div class="card-trip-infos">
-                    <div>
-                      <div class="card-trip-title">
-                        <h2><%= game.name%></h2>
-                        <h3><%= game.address%></h3>
+            <%= link_to game_path(game), class:"btn-card" do%>
+              <div class="card-trip">
+                <%= cl_image_tag(game.photos.first.key, crop: :fill) %>
+                <div class="card-trip-infos">
+                  <div>
+                    <div class="card-trip-title">
+                      <h2><%= game.name%></h2>
+                      <h3><%= game.address%></h3>
+                    </div>
+                    <div class="filters">
+                      <div class="symbol">
+                        <i class="fas fa-coins"></i>
+                        <p> <%=game.price%>$ </p>
                       </div>
-                      <div class="filters">
-                        <div class="symbol">
-                          <i class="fas fa-coins"></i>
-                          <p> <%=game.price%>$ </p>
-                        </div>
-                        <div class="symbol">
-                          <i class="fas fa-user-friends"></i>
-                          <p><%=game.min_player%>-<%=game.max_player%> players</p>
+                      <div class="symbol">
+                        <i class="fas fa-user-friends"></i>
+                        <p><%=game.min_player%>-<%=game.max_player%> players</p>
                         </div>
                         <div class="symbol">
                           <i class="fas fa-clock"></i>

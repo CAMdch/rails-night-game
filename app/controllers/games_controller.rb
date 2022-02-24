@@ -29,7 +29,6 @@ class GamesController < ApplicationController
     @review = Review.new
     @reviews = Review.where('game_id = ?', @game.id)
     @average_stars = average_stars
-
     @booking_json = @game.bookings.map do |booking|
       if booking.status == "Accept"
         start_date = booking.date_begin.strftime('%Y-%m-%d')
@@ -83,7 +82,7 @@ class GamesController < ApplicationController
   end
 
   def game_params
-    params.require(:game).permit(:name, :description, :address, :price, :min_player, :max_player, :photo, :playtime)
+    params.require(:game).permit(:name, :description, :address, :price, :min_player, :max_player, :playtime, photos: [])
   end
 
   def set_game

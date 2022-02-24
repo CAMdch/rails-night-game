@@ -2,6 +2,7 @@ class BookingsController < ApplicationController
   def show
     @booking = current_user.bookings.find(params[:id])
   end
+
   def create
     @booking = Booking.new(booking_params)
     @booking.game = Game.find(params[:game_id])
@@ -96,6 +97,7 @@ class BookingsController < ApplicationController
     end
     return @overlap_count != 0
   end
+
 end
 
 # def accept

@@ -1,10 +1,12 @@
-<div class="container">
+<div class="container payment-info">
   <div class="row py-4">
     <div class="col-md-3"><%= image_tag @booking.game.photo, width: '100%' %></div>
     <div class="col">
       <h1>Checkout summary</h1>
       <p>Purchase of <strong><%= @booking.game.name %></strong> for <strong><%= humanized_money_with_symbol @booking.price_cents.fdiv(100) %></strong></p>
-      <button id="pay" class="btn btn-primary">Pay</button>
+      <p><strong>From : </strong> <%= @booking.date_begin%></p>
+      <p><strong>To : </strong> <%= @booking.date_end%></p>
+      <button id="pay" class="btn btn-pay btn-submit">Pay</button>
 
       <script src="https://js.stripe.com/v3/"></script>
       <script>

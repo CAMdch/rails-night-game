@@ -39,7 +39,7 @@ class GamesController < ApplicationController
 
     @review_availablility = false if @game.reviews[0].nil?
 
-    unless @game.reviews[0].nil? && current_user.nil?
+    unless @game.reviews[0].nil?
       @review_availablility = true if @game.reviews[0].user_id == current_user.id
     end
 

@@ -68,7 +68,7 @@
           <%@reviews.each do |review|%>
             <div class="content-review">
               <p class="user-name"><%=review.user.name%></p>
-              <p class="created-review"><%=review.created_at%></p>
+              <p class="created-review"><%=review.created_at.strftime("%a, %d %b %Y")%></p>
               <p class="description-review"><%= review.content%></p>
               <div class="stars-rating">
                 <%review.stars.round.times do%>

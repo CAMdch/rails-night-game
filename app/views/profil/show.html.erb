@@ -38,8 +38,8 @@
               <%=cl_image_tag booking.game.photo.key%>
               <div class="card-product-infos">
                   <h3><%= booking.game.name%></h3>
-                  <p><strong>Start date :</strong> <%= booking.date_begin%></p>
-                  <p><strong>End date :</strong> <%= booking.date_end%></p>
+                  <p><strong>Start date :</strong> <%= booking.date_begin.strftime("%a, %d %b %Y")%></p>
+                  <p><strong>End date :</strong> <%= booking.date_end.strftime("%a, %d %b %Y")%></p>
                   <div class="pending-status">
                     <%if booking.status == "Accept"%>
                       <div class="status-accept">
@@ -78,8 +78,8 @@
               <%=cl_image_tag booking.game.photo.key%>
               <div class="card-product-infos">
                   <h3><%= booking.game.name%></h3>
-                  <p><strong>Start date :</strong> <%= booking.date_begin%></p>
-                  <p><strong>End date :</strong> <%= booking.date_end%></p>
+                  <p><strong>Start date :</strong> <%= booking.date_begin.strftime("%a, %d %b %Y")%></p>
+                  <p><strong>End date :</strong> <%= booking.date_end.strftime("%a, %d %b %Y")%></p>
                   <div class="pending-status">
                     <%if booking.status == "Accept"%>
                       <div class="status-accept">

@@ -3,9 +3,14 @@ class GamesController < ApplicationController
   before_action :set_game, only: %i[show destroy edit update]
 
   def index
-    if params[:query].present?
-      @query = params[:query]
-      @games = Game.where("name ILIKE ?", "%#{@query}%")
+    if params[:query_game].present? && params[:query_city].present?
+      @query = params[:query_game]
+      @games = Game.search_by_name_and_description(@query).near(params[:query_city], 2)
+    elsif params[:query_city].present?
+      @games = Game.near(params[:query_city], 2)
+    elsif params[:query_game].present?
+      @query = params[:query_game]
+      @games = Game.search_by_name_and_description(@query)
     else
       @games = Game.all
     end
@@ -39,8 +44,12 @@ class GamesController < ApplicationController
 
     @review_availablility = false if @game.reviews[0].nil?
 
-    unless @game.reviews[0].nil?
-      @review_availablility = true if @game.reviews[0].user_id == current_user.id
+    if !current_user.nil? && !@game.reviews[0].nil?
+      if @game.reviews[0].user_id == current_user.id
+        @review_availablility = true
+      else
+        @review_availablility = false
+      end
     end
 
     @marker = [{ lat: @game.latitude, lng: @game.longitude }]

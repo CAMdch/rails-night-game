@@ -6,7 +6,7 @@ export default class extends Controller {
 
   connect() {
     console.log(this.formTarget)
-    if (this.reviewsValue === true) {
+    if (this.reviewsValue === true ) {
       this.formTarget.classList.add("d-none")
       this.sorrymessageTarget.classList.remove("d-none")
     } else {

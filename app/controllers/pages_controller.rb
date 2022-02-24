@@ -2,10 +2,14 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: :home
 
   def home
-    if params[:query].present?
-      @query = params[:query]
-      @games = Game.where("name ILIKE ?", "%#{@query}%")
-
+    if params[:query_game].present? && params[:query_city].present?
+      @query = params[:query_game]
+      @games = Game.search_by_name_and_description(@query).near(params[:query_city], 2)
+    elsif params[:query_city].present?
+      @games = Game.near(params[:query_city], 2)
+    elsif params[:query_game].present?
+      @query = params[:query_game]
+      @games = Game.search_by_name_and_description(@query)
     else
       @games = Game.all
     end

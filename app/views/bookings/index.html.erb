@@ -16,7 +16,7 @@
   <div class="row">
     <h3 class="border-top pt-2">Waiting for you...</h3>
     <%@bookings.each do |booking|%>
-      <%if booking.status == "Waiting"%>
+      <%if booking.status == "Waiting" && booking.date_end > Time.now %>
         <div class="col-sm-12 col-lg-6">
           <div class="booking-card">
             <div class="booking-information">
@@ -41,8 +41,8 @@
     <%end%>
 
     <h3 class="border-top pt-2">You have accepted</h3>
-    <%@bookings.each do |booking|%>
-      <%if booking.status == "Accept"%>
+    <%@bookings.each do |booking| %>
+      <%if booking.status == "Accept" && booking.date_end > Time.now%>
         <div class="col-sm-12 col-lg-6">
           <div class="booking-card">
             <div class="booking-information">
@@ -50,6 +50,7 @@
               <p><strong>Start date :</strong> <%= booking.date_begin%></p>
               <p><strong>Start end :</strong> <%= booking.date_end%></p>
               <p><strong>Status :</strong> <%= booking.status%></p>
+              <p><strong>Payment status :</strong> <%= booking.state%></p>
             </div>
 
             <div class="update-status">
@@ -66,8 +67,8 @@
     <%end%>
 
     <h3 class="border-top pt-2">You have declined</h3>
-    <%@bookings.each do |booking|%>
-      <%if booking.status == "Decline"%>
+    <%@bookings.each do |booking| %>
+      <%if booking.status == "Decline" && booking.date_end > Time.now%>
         <div class="col-sm-12 col-lg-6">
           <div class="booking-card">
             <div class="booking-information">
@@ -75,6 +76,7 @@
               <p><strong>Start date :</strong> <%= booking.date_begin%></p>
               <p><strong>Start end :</strong> <%= booking.date_end%></p>
               <p><strong>Status :</strong> <%= booking.status%></p>
+              <p><strong>Payment status :</strong> <%= booking.state%></p>
             </div>
 
             <div class="update-status">

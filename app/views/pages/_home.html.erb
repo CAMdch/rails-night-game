@@ -10,6 +10,20 @@
       <div class="row">
         <%@games.each do |game|%>
           <div class="col-lg-6 col-sm-12">
+            <div class="hearts-absolute">
+              <div id=<%=game.id%> >
+                <div class="favorite-hearts" >
+                  <% if current_user.get_favorite(game)%>
+                    <%= link_to game_favorite_path(game, current_user.get_favorite(game) ), method: :delete, remote: true do%>
+                      <i class="far fa-heart"></i>
+                    <% end %>
+                  <% else %>
+                    <%= link_to game_favorites_path(game), method: :post, remote: true do%>
+                      <i class="fas fa-heart"></i>
+                    <% end %>
+                  <% end %>
+                </div>
+              </div>
             <%= link_to game_path(game), class:"btn-card" do%>
               <div class="card-trip">
                 <%= cl_image_tag(game.photos.first.key, crop: :fill) %>
@@ -27,16 +41,18 @@
                       <div class="symbol">
                         <i class="fas fa-user-friends"></i>
                         <p><%=game.min_player%>-<%=game.max_player%> players</p>
-                      </div>
-                      <div class="symbol">
-                        <i class="fas fa-clock"></i>
-                        <p><%=game.playtime%> mins</p>
+                        </div>
+                        <div class="symbol">
+                          <i class="fas fa-clock"></i>
+                          <p><%=game.playtime%> mins</p>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            <%end%>
+              <%end%>
+            </div>
+
           </div>
         <%end%>
       </div>
@@ -54,3 +70,8 @@
   </div>
 
 </div>
+<%# <%= link_to wachlists_path do%>
+                    <%# <div class= "wishlist-heart">
+                      <i class="fas fa-heart"><%= game.id %></i>
+                    <%# </div>
+                    <% end %>

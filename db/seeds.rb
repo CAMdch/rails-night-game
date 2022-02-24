@@ -13,20 +13,20 @@ require "open-uri"
 # créer un user
 # créer un jeu,assigner à ce jeu un utilisateur
 # créer un booking
-puts "Delete all bookings"
+puts "Deleting all bookings"
 Booking.destroy_all
 
-puts "Delete all reviews"
+puts "Deleting all reviews"
 Review.destroy_all
 
-puts "Delete all wichlists"
-Whichlist.destroy_all
-
-puts "Delete all games"
+puts "Deleting all games"
 Game.destroy_all
 
-puts "Delete all users"
+puts "Deleting all users"
 User.destroy_all
+
+puts "Deleting all favorites"
+Favorite.destroy_all
 
 puts "Creating users"
 

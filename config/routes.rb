@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :games do
     resources :bookings, only: %i[create index]
     resources :reviews, only: %i[create]
+    resources :favorites, only: %i[create destroy]
   end
 
   resources :bookings do
@@ -14,7 +15,8 @@ Rails.application.routes.draw do
     end
     resources :payments, only: :new
   end
-
+  resources :bookings, only: :destroy
+  resources :profil, only: :show
   resources :profil, only: :show
 
   mount StripeEvent::Engine, at: '/stripe-webhooks'

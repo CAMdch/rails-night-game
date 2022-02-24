@@ -1,13 +1,12 @@
-.search-bar {
-  border-radius: 40px;
+.search-bar-left {
   width: 80%;
   padding-left: 35px;
-  padding-right: 35px;
+  border-bottom-left-radius: 80px 80px;
+  border-top-left-radius: 80px 80px;
   margin-left: 64px;
   background-color: transparent;
   border: 2px solid white;
   color: white;
-  font-weight: 300;
   &::placeholder {
     color: white;
   }
@@ -15,6 +14,24 @@
     color: white;
     outline: none;
   }
+}
+
+.search-bar-right {
+  width: 80%;
+  padding-left: 35px;
+  border-bottom-right-radius: 80px 80px;
+  border-top-right-radius: 80px 80px;
+  background-color: transparent;
+  border: 2px solid white;
+  color: white;
+  &::placeholder {
+    color: white;
+  }
+  &:focus{
+    color: white;
+    outline: none;
+  }
+
 }
 
 .btn-submit-round {
@@ -39,4 +56,9 @@
     color: $pink;
     transition: 1s;
   }
+}
+
+.search-bar-home{
+  display: flex;
+  justify-content: center;
 }

@@ -1,0 +1,19 @@
+<div class="container">
+  <% current_user.favorites.each do |favorite|%>
+  <h1><%= favorite.game.name %></h1>
+  <div class="overlay">
+    <div class = "items"></div>
+    <div class = "items head">
+      <p><%= favorite.game.name %></p>
+      <hr>
+    </div>
+    <div class = "items price">
+      <p class="old">$345</p>
+      <p class="new">$345</p>
+    </div>
+    <div class="items cart">
+      <i class="fa fa-shopping-cart"></i>
+      <span>ADD TO CART</span>
+  </div>
+  <% end %>
+</div>

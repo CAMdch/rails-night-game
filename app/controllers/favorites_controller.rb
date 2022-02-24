@@ -14,17 +14,3 @@ class FavoritesController < ApplicationController
     redirect_to root_path(anchor: params[:game_id])
   end
 end
-# favorite.game == current_game
-
-# existing_wish = current_user.favorites.select { |favorite| favorite.game == current_game }
-# if existing_wish.class == Array
-#   existing_wish.each do |wish|
-#     wish.destroy
-#   end
-# else
-#   existing_wish.destroy
-# end
-
-    # if favorite.game == current_game
-      #   redirect_to game_favorite_path(current_game, favorite)
-      # else

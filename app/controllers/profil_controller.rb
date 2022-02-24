@@ -3,4 +3,7 @@ class ProfilController < ApplicationController
     @bookings = Booking.where('user_id = ?', current_user.id)
     @games = Game.where('user_id = ?', current_user.id)
   end
+
+  def my_favorites
+  end
 end

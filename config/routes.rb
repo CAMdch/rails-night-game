@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     resources :payments, only: :new
   end
   resources :bookings, only: :destroy
-  resources :profil, only: :show
+  get 'my_favorites', to: 'profil#my_favorites', as: :my_favorites
   resources :profil, only: :show
 
   mount StripeEvent::Engine, at: '/stripe-webhooks'

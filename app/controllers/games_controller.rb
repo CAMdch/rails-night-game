@@ -44,11 +44,18 @@ class GamesController < ApplicationController
 
     @review_availablility = false if @game.reviews[0].nil?
 
-    if !current_user.nil? && !@game.reviews[0].nil?
-      if @game.reviews[0].user_id == current_user.id
-        @review_availablility = true
-      else
-        @review_availablility = false
+    if current_user.nil?
+      @review_availablility = false
+      @review_login = false
+    elsif @game.reviews.blank?
+      @review_availablility = true
+      @review_login = true
+    else
+      @game.reviews.each do |review|
+        if review.user_id == current_user.id
+          @review_availablility = false
+          @review_login = true
+        end
       end
     end
 

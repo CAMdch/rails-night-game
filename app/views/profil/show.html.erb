@@ -4,7 +4,6 @@
   <h4 class="btn btn-unactive" data-action = "click->viewprofil#display" data-choice="products" data-viewprofil-target="btnproducts">Your products</h4>
   <h4 class="btn btn-active" data-action = "click->viewprofil#display" data-choice="bookings" data-viewprofil-target="btnbookings">Your bookings</h4>
   <h4 class="btn btn-unactive" data-action = "click->viewprofil#display" data-choice="history" data-viewprofil-target="btnhistory">Your history</h4>
-  <h4 class="btn btn-unactive" data-action = "click->viewprofil#display" data-choice="favorites" data-viewprofil-target="btnfavorites">Your favorites</h4>
 
   <div class="products-view  d-none" data-viewprofil-target="products">
     <div class="row">
@@ -36,7 +35,7 @@
         <%if booking.date_end > Time.now %>
           <div class="col-lg-6 col-sm-12">
             <div class="card-product-booking">
-              <%=cl_image_tag booking.games.first.photo.key%>
+              <%=cl_image_tag booking.game.photos[0].key%>
               <div class="card-product-infos">
                   <h3><%= booking.game.name%></h3>
                   <p><strong>Start date :</strong> <%= booking.date_begin.strftime("%a, %d %b %Y")%></p>
@@ -76,7 +75,7 @@
         <%if booking.status == "Accept" && booking.date_end < Time.now %>
           <div class="col-lg-6 col-sm-12">
             <div class="card-product-booking">
-              <%=cl_image_tag booking.games.first.photo.key%>
+              <%=cl_image_tag booking.games.first.photos[0].key%>
               <div class="card-product-infos">
                   <h3><%= booking.game.name%></h3>
                   <p><strong>Start date :</strong> <%= booking.date_begin.strftime("%a, %d %b %Y")%></p>
@@ -110,8 +109,5 @@
     </div>
   </div>
 
-  <div class="favorites-view" data-viewprofil-target="favorites">
-    <div class="row">
-      <h1>hello world!</h1>
-  </div>
+
 </div>

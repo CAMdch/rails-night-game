@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     resources :favorites, only: %i[create destroy]
   end
 
+  resources :reviews, only: %i[destroy]
+
   resources :bookings do
     member do
       patch 'decline'

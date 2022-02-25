@@ -4,6 +4,7 @@
   border-bottom-left-radius: 80px 80px;
   border-top-left-radius: 80px 80px;
   margin-left: 64px;
+  font-family: $body-font;
   background-color: transparent;
   border: 2px solid white;
   color: white;
@@ -22,6 +23,7 @@
   border-bottom-right-radius: 80px 80px;
   border-top-right-radius: 80px 80px;
   background-color: transparent;
+  font-family: $body-font;
   border: 2px solid white;
   color: white;
   &::placeholder {
@@ -45,9 +47,9 @@
   padding-left: 12px;
   border-radius: 50%;
   transition: 1s;
-  background-color: #df0adf;
+  background-color: transparent;
   position: relative;
-  right: 64px;
+  right: 63px;
   bottom: -1px;
   &:hover {
      text-decoration: none;

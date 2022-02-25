@@ -17,7 +17,7 @@
                           <h2 class="java"><%= favorite.game.price %>$ a night</h2>
                         <% end %>
                         <p class="java"><%= favorite.game.description %></p>
-                        <%= link_to game_favorite_path(favorite.game, favorite ), method: :delete, remote: true do%>
+                        <%= link_to game_favorite_path(favorite.game, favorite, name: 'favorite' ), method: :delete, remote: true  do%>
                           <i class="fas fa-times-circle"></i>
                         <% end %>
                       </div>

@@ -14,6 +14,7 @@
       <div class="row">
         <%@games.each do |game|%>
           <div class="col-lg-6 col-sm-12">
+          <a id="game-<%= game.id %>" class ="anchor"></a>
             <div class="hearts-absolute">
               <div id=<%=game.id%> >
                 <div class="favorite-hearts" >

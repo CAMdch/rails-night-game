@@ -106,7 +106,8 @@
             <p>Be the first to leave a review for <%= @game.name %></p>
           <% else %>
             <%@reviews.each do |review|%>
-              <div class="content-review" id="review-<%= review.id %>">
+              <a id="review-<%= review.id %>" class ="anchor"></a>
+              <div class="content-review" >
                 <p class="user-name"><%=review.user.name%></p>
                 <p class="created-review"><%=review.created_at.strftime("%a, %d %b %Y")%></p>
                 <p class="description-review"><%= review.content%></p>

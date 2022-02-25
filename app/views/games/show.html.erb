@@ -59,6 +59,11 @@
                 <p><%= @game.description%></p>
                 <p><strong>Location :</strong> <%=@game.address %></p>
               </div>
+
+              <div class="game-owner">
+                <%= cl_image_tag(@game.user.photo.key) %>
+                <p><strong>Owner : </strong><%= @game.user.name%></p>
+              </div>
               </div>
           </div>
           </div>
@@ -112,7 +117,8 @@
       </div>
 
 
-      <div class="col-lg-4 col-sm-12" data-controller="availablereview" data-availablereview-reviews-value="<%= @review_availablility%>">
+      <div class="col-lg-4 col-sm-12" data-controller="availablereview" data-availablereview-reviews-value="<%= @review_availablility%>"
+      data-availablereview-login-value="<%= @review_login%>">
         <div class="add-review" data-controller="review" data-availablereview-target="form">
           <%= simple_form_for [@game, @review] do |f|%>
             <%= f.input :content%>
@@ -123,6 +129,10 @@
 
         <div class="invailable-review d-none" data-availablereview-target="sorrymessage">
           <p> Sorry 😔 You can't review a game twice ...</p>
+        </div>
+
+        <div class="invailable-review d-none" data-availablereview-target="loginmessage">
+          <p> If you want to review you have to log in !</p>
         </div>
 
       </div>

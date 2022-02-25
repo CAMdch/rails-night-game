@@ -24,10 +24,18 @@
               <%= image_tag "https://images.unsplash.com/photo-1588422333078-44ad73367bcb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <% end %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "My profile", profil_path(current_user.id), class: "dropdown-item" %>
-              <%= link_to "My Wishlist", my_favorites_path, class: "dropdown-item" %>
-              <%= link_to "Update profile", edit_user_registration_path, class: "dropdown-item" %>
-              <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+              <%= link_to profil_path(current_user.id), class: "dropdown-item" do%>
+                <i class="fas fa-user-circle"></i> My profile
+              <% end %>
+              <%= link_to my_favorites_path, class: "dropdown-item" do%>
+                <i class="fas fa-heart"></i> My Wishlist
+              <% end %>
+              <%= link_to edit_user_registration_path, class: "dropdown-item" do%>
+                <i class="fas fa-user-plus"></i> Update profile
+              <% end %>
+              <%= link_to destroy_user_session_path, method: :delete, class: "dropdown-item" do%>
+                <i class="fas fa-power-off"></i> Log out
+              <% end %>
             </div>
           </li>
         <% else %>

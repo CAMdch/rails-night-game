@@ -61,7 +61,11 @@
               </div>
 
               <div class="game-owner">
-                <%= cl_image_tag(@game.user.photo.key) %>
+                <% if @game.user.photo.attached?%>
+                  <%= cl_image_tag @game.user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+                <% else %>
+                  <%= image_tag "https://images.unsplash.com/photo-1588422333078-44ad73367bcb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+                <% end %>
                 <p><strong>Owner : </strong><%= @game.user.name%></p>
               </div>
               </div>
@@ -98,21 +102,26 @@
               <p><%= @average_stars %></p>
             </div>
           </div>
-          <%@reviews.each do |review|%>
-            <div class="content-review">
-              <p class="user-name"><%=review.user.name%></p>
-              <p class="created-review"><%=review.created_at.strftime("%a, %d %b %Y")%></p>
-              <p class="description-review"><%= review.content%></p>
-              <div class="stars-rating">
-                <%review.stars.round.times do%>
-                  <i class="fas fa-star"></i>
-                <%end%>
-                <%(5 - review.stars.round).times do%>
-                  <i class="far fa-star"></i>
-                <%end%>
+          <% if @game.reviews.blank? %>
+            <p>Be the first to leave a review for <%= @game.name %></p>
+          <% else %>
+            <%@reviews.each do |review|%>
+              <div class="content-review" id="review-<%= review.id %>">
+                <p class="user-name"><%=review.user.name%></p>
+                <p class="created-review"><%=review.created_at.strftime("%a, %d %b %Y")%></p>
+                <p class="description-review"><%= review.content%></p>
+                <div class="stars-rating">
+                  <%review.stars.round.times do%>
+                    <i class="fas fa-star"></i>
+                  <%end%>
+                  <%(5 - review.stars.round).times do%>
+                    <i class="far fa-star"></i>
+                  <%end%>
+                </div>
               </div>
-            </div>
-          <%end%>
+            <%end%>
+          <% end %>
+
         </div>
       </div>
 
@@ -120,7 +129,7 @@
       <div class="col-lg-4 col-sm-12" data-controller="availablereview" data-availablereview-reviews-value="<%= @review_availablility%>"
       data-availablereview-login-value="<%= @review_login%>">
         <div class="add-review" data-controller="review" data-availablereview-target="form">
-          <%= simple_form_for [@game, @review] do |f|%>
+          <%= simple_form_for( [@game, @review], remote: true) do |f|%>
             <%= f.input :content%>
             <%= f.input :stars, collection: 1..5%>
             <%= f.submit class: "btn-submit mt-2" %>

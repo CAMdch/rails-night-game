@@ -7,7 +7,7 @@ class ReviewsController < ApplicationController
     @booking = Booking.new
     @reviews = Review.all
     if @review.save
-      redirect_to game_path(params[:game_id])
+      redirect_to game_path(params[:game_id], anchor: "review-#{@review.id}")
     else
       render 'games/show'
     end

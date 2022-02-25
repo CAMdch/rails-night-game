@@ -1,11 +1,11 @@
 <%= render 'shared/banner-homepage' %>
 <div class="container mb-5">
   <%if params[:query_game].present? && params[:query_city].present?%>
-    <h2>We found <%= @games.size%> result(s) corresponding to your search : "<%= params[:query_game] %>" near <%= params[:query_city]%> </h2>
+    <h2>We found <%= pluralize @games.size, "result" %> corresponding to your search : "<%= params[:query_game] %>" near <%= params[:query_city]%> </h2>
   <%elsif params[:query_city].present?%>
-    <h2>We found <%= @games.size%> result(s) near <%= params[:query_city]%> </h2>
+    <h2>We found <%= pluralize @games.size, "result" %> near <%= params[:query_city]%> </h2>
   <%elsif params[:query_game].present? %>
-    <h2>We found <%= @games.size%> result(s) corresponding to your search : "<%= params[:query_game] %>" </h2>
+    <h2>We found <%= pluralize @games.size, "result" %> corresponding to your search : "<%= params[:query_game] %>" </h2>
   <%else%>
     <h1>All our board games</h1>
   <%end%>

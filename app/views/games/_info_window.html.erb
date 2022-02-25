@@ -1,7 +1,34 @@
 <div class="pop-up">
-  <div class="pop-up-image">
-    <%=cl_image_tag game.photos.first.key%>
-  </div>
+
+  <%if game.photos.size > 1 %>
+    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <% game.photos.each do |photo| %>
+          <% if photo == game.photos.first %>
+            <div class="carousel-item active pop-up-image">
+              <%=cl_image_tag photo.key, class:"d-block w-100"%>
+            </div>
+          <% else %>
+            <div class="carousel-item pop-up-image">
+              <%=cl_image_tag photo.key, class:"d-block w-100"%>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  <%else%>
+    <div class="pop-up-image">
+      <%= cl_image_tag(game.photos.first.key) %>
+    </div>
+  <%end%>
   <div class="info-pop">
     <h2><%= link_to game.name, game_path(game) %></h2>
     <p><%= game.address %></p>

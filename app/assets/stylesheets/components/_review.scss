@@ -56,6 +56,22 @@
   right: 22px;
 }
 
+.delete-message {
+  position:absolute;
+  bottom: 12px;
+  right: 22px;
+  a {
+    text-decoration: none;
+    color: white;
+    opacity : 0.5;
+    transition: 1s;
+    &:hover {
+      transition: 1s;
+      opacity: 1;
+    }
+  }
+}
+
 .invailable-review {
   font-size: 25px;
   padding: 15px;

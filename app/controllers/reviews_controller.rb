@@ -13,6 +13,13 @@ class ReviewsController < ApplicationController
     end
   end
 
+  def destroy
+    @review = Review.find(params[:id])
+    @game = Game.find(@review.game_id)
+    @review.destroy
+    redirect_to game_path(@game)
+  end
+
   private
 
   def review_params

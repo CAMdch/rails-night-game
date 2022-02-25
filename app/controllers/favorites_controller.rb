@@ -2,7 +2,11 @@ class FavoritesController < ApplicationController
   def destroy
     @favorite = Favorite.find(params[:id])
     @favorite.destroy!
-    redirect_to root_path(anchor: "game-#{@favorite.game_id}")
+    if params[:name] == 'favorite'
+      redirect_to my_favorites_path
+    else
+      redirect_to root_path(anchor: "game-#{@favorite.game_id}")
+    end
   end
 
   def create

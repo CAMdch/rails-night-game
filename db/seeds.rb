@@ -109,7 +109,6 @@ viticulture.photos.attach(io: photo_viticulture2, filename: 'viticulture-image2.
 viticulture.photos.attach(io: photo_viticulture3, filename: 'viticulture-image3.jpg', content_type: 'image/jpg')
 viticulture.save!
 
-
 photo_monopoly = URI.open('https://www.cdiscount.com/pdt2/1/2/1/1/700x700/has0001055920121/rw/hasbro-monopoly-millionaire-fast-traitant-de-la.jpg')
 photo_monopoly2 = URI.open('https://m.media-amazon.com/images/I/81bSjjopW8L._AC_SL1500_.jpg')
 photo_monopoly3 = URI.open('https://m.media-amazon.com/images/I/81Bw6pPQ4UL._AC_SL1000_.jpg')
@@ -118,10 +117,6 @@ monopoly.photos.attach(io: photo_monopoly, filename: 'monopoly-image.jpg', conte
 monopoly.photos.attach(io: photo_monopoly2, filename: 'monopoly-image2.jpg', content_type: 'image/jpg')
 monopoly.photos.attach(io: photo_monopoly3, filename: 'monopoly-image3.jpg', content_type: 'image/jpg')
 monopoly.save!
-
-
-
-
 
 puts " #{Game.count}Game Created !"
 

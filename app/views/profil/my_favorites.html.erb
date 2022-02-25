@@ -1,19 +1,35 @@
-<div class="container">
-  <% current_user.favorites.each do |favorite|%>
-  <h1><%= favorite.game.name %></h1>
-  <div class="overlay">
-    <div class = "items"></div>
-    <div class = "items head">
-      <p><%= favorite.game.name %></p>
-      <hr>
-    </div>
-    <div class = "items price">
-      <p class="old">$345</p>
-      <p class="new">$345</p>
-    </div>
-    <div class="items cart">
-      <i class="fa fa-shopping-cart"></i>
-      <span>ADD TO CART</span>
+
+<% if current_user.favorites.length.zero? %>
+  <div class="container">
+    <p>No games have been added to your wishlist.</p>
   </div>
-  <% end %>
-</div>
+<% else %>
+  <div class="row">
+      <%= console %>
+        <% current_user.favorites.each do |favorite| %>
+          <div class='col-lg-4 col-md-6 col-sm-12 favorite-layout'>
+            <div class="favorite-layout">
+              <div class="container">
+                <div class="card">
+                  <div class="face face1">
+                    <div class="content">
+                      <span class="stars"></span>
+                      <%= link_to game_path(favorite.game) do%>
+                        <h2 class="java"><%= favorite.game.price %>$ a night</h2>
+                      <% end %>
+                      <p class="java"><%= favorite.game.description %></p>
+                      <%= link_to game_favorite_path(favorite.game, favorite ), method: :delete, remote: true do%>
+                        <i class="fas fa-times-circle"></i>
+                      <% end %>
+                    </div>
+                  </div>
+                  <div class="face face2" style="background-image:linear-gradient(rgba(0,0,0,0.2), rgba(71,8,100,0.3)), url('<%= cl_image_path favorite.game.photos.first.key, height: 400, crop: :fill %>')">
+                    <h4><strong><%= favorite.game.name %></strong></h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+  </div>
+<% end %>

@@ -8,8 +8,9 @@
     <div>EVERYONE!</div>
   </div>
   <p> Rent a game</p>
-  <form class="d-flex justify-content-center">
-    <input class="search-bar" name="query" type="search" placeholder="Search" value="<%= params[:query] %>">
+  <form class="search-bar-home">
+    <input class="search-bar-left" name="query_game" type="search" placeholder="Game..." value="<%= params[:query_game] %>">
+    <input class="search-bar-right" name="query_city" type="search" placeholder="City..." value="<%= params[:query_city] %>">
     <button class="btn-submit-round" type="submit"><i class="fas fa-search"></i></button>
   </form>
 </div>

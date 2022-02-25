@@ -185,6 +185,17 @@
   padding: 16px;
 }
 
+.card-product-booking a {
+  text-decoration: none;
+  color: white;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+
+
+
 
 .icon-status a {
   text-decoration: none;

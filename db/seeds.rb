@@ -63,12 +63,14 @@ photo_scythe = URI.open('https://cdn.shopify.com/s/files/1/0513/4077/1515/produc
 photo_scythe2 = URI.open('https://i.ebayimg.com/images/g/N3UAAOSw0EVhEHtf/s-l1600.jpg')
 photo_scythe3 = URI.open('https://i.ebayimg.com/images/g/jRIAAOSwpDVhEHth/s-l1600.jpg')
 scythe = Game.new(name: "Scythe", description: "Scythe gives players almost complete control over their fate. ", price: "4€", min_player:"1", max_player: "5", playtime: "90min", address:"5 Rue du Paradis, Lomme", user: alexis)
+
 scythe.photos.attach(io: photo_scythe, filename: 'scythe-image.jpg', content_type: 'image/jpg')
 scythe.photos.attach(io: photo_scythe2, filename: 'scythe-image2.jpg', content_type: 'image/jpg')
 scythe.photos.attach(io: photo_scythe3, filename: 'scythe-image3.jpg', content_type: 'image/jpg')
 scythe.save!
 
 photo_terraforming_mars = URI.open('https://d2k4q26owzy373.cloudfront.net/350x350/games/uploaded/1629324032557.jpg')
+
 photo_terraforming_mars2 = URI.open('https://m.media-amazon.com/images/I/81c0G0Ny15L._AC_SL1500_.jpg')
 photo_terraforming_mars3 = URI.open('https://m.media-amazon.com/images/I/71egab-6cpL._AC_SL1500_.jpg')
 terraforming_mars = Game.new(name: "Terraforming Mars", description: "In the 2400s, mankind begins to terraform the planet Mars.", price: "6€", min_player:"2", max_player: "5", playtime: "90min", address: "33 Rue de Bir Hakeim, Mouvaux" , user: alexis)
@@ -78,6 +80,7 @@ terraforming_mars.photos.attach(io: photo_terraforming_mars3, filename: 'terrafo
 terraforming_mars.save!
 
 photo_pandemic = URI.open('https://d2k4q26owzy373.cloudfront.net/350x350/games/uploaded/1559254186140-51iNoyxoamL.jpg')
+
 photo_pandemic2 = URI.open('https://m.media-amazon.com/images/I/81k-KSydlzL._AC_SL1500_.jpg')
 photo_pandemic3 = URI.open('https://m.media-amazon.com/images/I/817H2dO3ZAL._AC_SL1500_.jpg')
 pandemic = Game.new(name: "Pandemic", description: "After five years of Pandemic, hundreds of thousands of players have contracted the virus!", price: "3€", min_player:"2", max_player: "4", playtime: "45min", address: "36 Rue Napoléon Bonaparte, Halluin" , user: camille)
@@ -102,6 +105,7 @@ viticulture.photos.attach(io: photo_viticulture2, filename: 'viticulture-image2.
 viticulture.photos.attach(io: photo_viticulture3, filename: 'viticulture-image3.jpg', content_type: 'image/jpg')
 viticulture.save!
 
+
 photo_monopoly = URI.open('https://www.cdiscount.com/pdt2/1/2/1/1/700x700/has0001055920121/rw/hasbro-monopoly-millionaire-fast-traitant-de-la.jpg')
 photo_monopoly2 = URI.open('https://m.media-amazon.com/images/I/81bSjjopW8L._AC_SL1500_.jpg')
 photo_monopoly3 = URI.open('https://m.media-amazon.com/images/I/81Bw6pPQ4UL._AC_SL1000_.jpg')
@@ -110,6 +114,7 @@ monopoly.photos.attach(io: photo_monopoly, filename: 'monopoly-image.jpg', conte
 monopoly.photos.attach(io: photo_monopoly2, filename: 'monopoly-image2.jpg', content_type: 'image/jpg')
 monopoly.photos.attach(io: photo_monopoly3, filename: 'monopoly-image3.jpg', content_type: 'image/jpg')
 monopoly.save!
+
 
 
 

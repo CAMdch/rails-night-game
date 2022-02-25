@@ -1,6 +1,6 @@
 <div class="container payment-info">
   <div class="row py-4">
-    <div class="col-md-3"><%= image_tag @booking.game.photo, width: '100%' %></div>
+    <div class="col-md-3"><%= image_tag @booking.game.photos[0], width: '100%' %></div>
     <div class="col">
       <h1>Checkout summary</h1>
       <p>Purchase of <strong><%= @booking.game.name %></strong> for <strong><%= humanized_money_with_symbol @booking.price_cents.fdiv(100) %></strong></p>

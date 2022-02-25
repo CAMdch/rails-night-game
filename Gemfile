@@ -71,3 +71,5 @@ gem "geocoder"
 gem 'money-rails'
 gem 'stripe'
 gem 'stripe_event'
+gem 'pg_search', '~> 2.3.0'
+gem "turbolinks_render"

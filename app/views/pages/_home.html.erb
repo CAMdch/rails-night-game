@@ -1,7 +1,11 @@
 <%= render 'shared/banner-homepage' %>
 <div class="container mb-5">
-  <%if params[:query].present?%>
-    <h2>We found <%=@games.count%> result(s) corresponding to your search : <%= params[:query]%> </h2>
+  <%if params[:query_game].present? && params[:query_city].present?%>
+    <h2>We found <%= @games.size%> result(s) corresponding to your search : "<%= params[:query_game] %>" near <%= params[:query_city]%> </h2>
+  <%elsif params[:query_city].present?%>
+    <h2>We found <%= @games.size%> result(s) near <%= params[:query_city]%> </h2>
+  <%elsif params[:query_game].present? %>
+    <h2>We found <%= @games.size%> result(s) corresponding to your search : "<%= params[:query_game] %>" </h2>
   <%else%>
     <h1>All our board games</h1>
   <%end%>
@@ -16,11 +20,11 @@
                   <% unless current_user.nil? %>
                     <% if current_user.get_favorite(game)%>
                       <%= link_to game_favorite_path(game, current_user.get_favorite(game) ), method: :delete, remote: true do%>
-                        <i class="far fa-heart"></i>
+                        <i class="fas fa-heart"></i>
                       <% end %>
                     <% else %>
                       <%= link_to game_favorites_path(game), method: :post, remote: true do%>
-                        <i class="fas fa-heart"></i>
+                        <i class="far fa-heart"></i>
                       <% end %>
                     <% end %>
                   <% end %>

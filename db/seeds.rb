@@ -30,13 +30,17 @@ Favorite.destroy_all
 
 puts "Creating users"
 
-photo_alexis = URI.open('https://previews.123rf.com/images/yupiramos/yupiramos1705/yupiramos170509105/77704043-personnage-d-avatar-jeune-homme-conception-d-illustration-vectorielle-isom%C3%A9trique.jpg')
+photo_alexis = URI.open('https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80')
 alexis = User.new(name: "Alexis Sion", email: "alexis@gmail.com", phone: "0611223344", password: "azerty")
 alexis.photo.attach(io: photo_alexis, filename: 'alexis-image.jpg', content_type: 'image/jpg')
 alexis.save!
+photo_camille = URI.open('https://images.unsplash.com/photo-1509967419530-da38b4704bc6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=895&q=80')
 camille = User.new(name: "Camille Dauchy", email: "camille@gmail.com", phone: "0622334455", password: "azerty")
+camille.photo.attach(io: photo_camille, filename: 'camille-image.jpg', content_type: 'image/jpg')
 camille.save!
+photo_emily = URI.open('https://images.unsplash.com/photo-1548142813-c348350df52b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=389&q=80')
 emily = User.new(name: "Emily Haynes", email: "emily@gmail.com", phone: "0633445566", password: "azerty")
+emily.photo.attach(io: photo_emily, filename: 'emily-image.jpg', content_type: 'image/jpg')
 emily.save!
 
 puts "#{User.count} User Created !"
